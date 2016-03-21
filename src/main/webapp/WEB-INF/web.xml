@@ -9,6 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>
+  <listener>
+    <listener-class>com.example.cameraipcapitalpartners.listener.SessionListener</listener-class>
+  </listener>
   <filter>
     <filter-name>ObjectifyFilter</filter-name>
     <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>

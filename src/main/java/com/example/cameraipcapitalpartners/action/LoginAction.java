@@ -1,5 +1,7 @@
 package com.example.cameraipcapitalpartners.action;
 
+import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +15,8 @@ import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 public class LoginAction extends ActionAdapter {
+	private static final Logger log = Logger.getLogger(LoginAction.class.getName());
+	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		String view = "/login.jsp";
@@ -32,6 +36,8 @@ public class LoginAction extends ActionAdapter {
 			if (profile != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("email", email);
+				log.info("Session login: " + session.getId()
+						+ "; e-mail: " + session.getAttribute("email"));
 				return "redirect:/";
 			}
 			
