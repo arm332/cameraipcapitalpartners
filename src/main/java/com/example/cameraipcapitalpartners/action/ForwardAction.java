@@ -17,7 +17,7 @@ public class ForwardAction extends ActionAdapter {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
-		String param = request.getParameter("url");
+		String param = request.getParameter("url"); // /forward?url=URL
 		response.setContentType("image/jpeg");
 		BufferedOutputStream output = null;
 		BufferedInputStream input = null;
