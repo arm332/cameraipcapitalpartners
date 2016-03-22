@@ -5,6 +5,10 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import com.example.cameraipcapitalpartners.model.Viewer;
+import com.example.cameraipcapitalpartners.service.ViewerService;
+import com.example.cameraipcapitalpartners.service.ViewerServiceImpl;
+
 public class SessionListener implements HttpSessionListener {
 	private static final Logger log = Logger.getLogger(SessionListener.class.getName());
 	private static int sessionCount = 0;
@@ -34,6 +38,10 @@ public class SessionListener implements HttpSessionListener {
 		log.info("Session destroyed: " + event.getSession().getId()
 				+ "; e-mail: " + event.getSession().getAttribute("email")
 				+ "; count: " + getSessionCount());
+		
+		// NOT WORKING!
+		//ViewerService viewerService = new ViewerServiceImpl();
+		//viewerService.delete(event.getSession().getId());
 	}
 
 }

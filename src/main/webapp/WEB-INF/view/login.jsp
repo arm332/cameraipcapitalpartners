@@ -17,7 +17,7 @@
 		<!-- Page Heading -->
 		<div class="page-center">
 			<!-- <h2>IP CAPITAL PARTNERS</h2> -->
-			<div class="login-logo"><img src="login.png" alt="IP CAPITAL PARTNERS" width="100%"></div>
+			<div class="login-logo"><img src="logobig.png" alt="IP CAPITAL PARTNERS" width="100%"></div>
 			<% if (request.getParameter("logout") != null) { %>
 				<div class="alert alert-success">You have been logged out successfully.</div>
 			<% } %>

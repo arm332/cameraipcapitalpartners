@@ -38,6 +38,7 @@
 							<li><a href="/camera">Câmeras</a></li>
 							<!-- <li><a href="/product">Produtos</a></li> -->
 							<li><a href="/profile">Usuários</a></li>
+							<li><a href="/viewer">Usuários Ativos</a></li>
 							<!-- <li role="separator" class="divider"></li>
 							<li class="dropdown-header">Nav header</li>
 							<li><a href="#">Separated link</a></li>

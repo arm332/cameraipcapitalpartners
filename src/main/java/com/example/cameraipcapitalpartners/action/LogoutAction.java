@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.example.cameraipcapitalpartners.model.Viewer;
+import com.example.cameraipcapitalpartners.service.ViewerService;
+import com.example.cameraipcapitalpartners.service.ViewerServiceImpl;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
@@ -20,6 +23,8 @@ public class LogoutAction extends ActionAdapter {
 		HttpSession session = request.getSession();
 		log.info("Session logout: " + session.getId() 
 				+ "; e-mail: " + session.getAttribute("email"));
+		ViewerService viewerService = new ViewerServiceImpl();
+		viewerService.delete(session.getId());
 		session.invalidate();
 		return "redirect:" + logoutUrl;
 	}
