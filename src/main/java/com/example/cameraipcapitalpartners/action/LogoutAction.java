@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.example.cameraipcapitalpartners.model.Viewer;
 import com.example.cameraipcapitalpartners.service.ViewerService;
 import com.example.cameraipcapitalpartners.service.ViewerServiceImpl;
 import com.google.appengine.api.users.UserService;

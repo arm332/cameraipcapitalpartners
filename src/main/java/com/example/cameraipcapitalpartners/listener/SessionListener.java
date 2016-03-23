@@ -27,6 +27,8 @@ public class SessionListener implements HttpSessionListener {
 				+ "; e-mail: " + event.getSession().getAttribute("email")
 				+ "; count: " + getSessionCount()
 				+ "; timeout: " + event.getSession().getMaxInactiveInterval());
+		
+		
 	}
 
 	@Override
@@ -39,7 +41,7 @@ public class SessionListener implements HttpSessionListener {
 				+ "; e-mail: " + event.getSession().getAttribute("email")
 				+ "; count: " + getSessionCount());
 		
-		// NOT WORKING!
+		// NOT WORKING! why?
 		//ViewerService viewerService = new ViewerServiceImpl();
 		//viewerService.delete(event.getSession().getId());
 	}

@@ -20,14 +20,16 @@
 		<thead>
 			<tr>
 				<th>Sessão</th>
-				<th width="100%">E-Mail</th>
+				<th>E-Mail</th>
+				<th>Expira</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="item" items="${list}">
 				<tr>
-					<td>${item.sessionid}</td>
+					<td>${item.key}</td>
 					<td>${item.email}</td>
+					<td>${item.expires}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
