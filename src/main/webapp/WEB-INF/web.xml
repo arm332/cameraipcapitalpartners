@@ -39,13 +39,10 @@
     <servlet-name>FrontController</servlet-name>
     <url-pattern>/FrontController/*</url-pattern>
   </servlet-mapping>
-  <!--  TESTING -->
-  <session-config>
-    <session-timeout>15</session-timeout>
-  </session-config>
-  <!-- <listener>
+  <!--  TESTING 
+  <listener>
     <listener-class>com.example.cameraipcapitalpartners.listener.SessionListener</listener-class>
-  </listener>
+  </listener> -->
   <servlet>
     <servlet-name>_ah_sessioncleanup</servlet-name>
     <servlet-class>com.google.apphosting.utils.servlet.SessionCleanupServlet</servlet-class>
@@ -62,5 +59,8 @@
     <auth-constraint>
       <role-name>admin</role-name>
     </auth-constraint>
-  </security-constraint> -->
+  </security-constraint>
+  <session-config>
+    <session-timeout>15</session-timeout>
+  </session-config>
 </web-app>
