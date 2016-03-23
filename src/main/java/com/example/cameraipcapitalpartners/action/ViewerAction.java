@@ -20,9 +20,9 @@ import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.Key;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+import com.google.gson.Gson;
 
 public class ViewerAction extends ActionAdapter {
-	//private ViewerService service = new ViewerServiceImpl(); 
 
 	@Override
 	public String list(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -33,7 +33,8 @@ public class ViewerAction extends ActionAdapter {
 		Query query = new Query("_ah_SESSION"); 
 		PreparedQuery preparedQuery = datastore.prepare(query); 
 		List<Entity> entities = preparedQuery.asList(FetchOptions.Builder.withOffset(0));
-
+		Date now = new Date();
+		 
 		for (Entity entity : entities) {
 			final Blob blob = (Blob) entity.getProperty("_values");
 			Object obj = null;
@@ -61,18 +62,38 @@ public class ViewerAction extends ActionAdapter {
 						final Key key = entity.getKey();
 						map.put("key", key.getName());
 						
-						final long expires = (long) entity.getProperty("_expires");
-						map.put("expires", new Date(expires).toString());
-
 						map.put("email", email.toString());
+						
+						final long time = (long) entity.getProperty("_expires");
+						final Date expires = new Date(time);
+						map.put("expires", expires.toString());
+
+						final Integer status = now.compareTo(expires);
+						map.put("status", status.toString());
+						
 						list.add(map);
 					}
 				}
 			}
 		}
 		
-		request.setAttribute("list", list);
-		return "/viewer.jsp";
+		if (request.getHeader("x-requested-with") != null) {
+			String json = new Gson().toJson(list);
+			response.setContentType("application/json");
+			
+	        try {
+				response.getWriter().write(json);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+	        
+	        return null;
+		}
+		else {
+			request.setAttribute("list", list);
+			return "/viewer.jsp";
+		}
+		
 	}
 	
 }

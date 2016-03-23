@@ -6,8 +6,11 @@
 		<div class="container">
 	        <div class="row">
             	<hr />
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <p>Copyright &copy; 2016, Investidor Profissional.</p>
+                </div>
+                <div class="col-md-6">
+                	<p class="text-right" id="viewer"></p>
                 </div>
             </div>
             <!-- /.row -->

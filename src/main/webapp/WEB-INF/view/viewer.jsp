@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-lg-12">
 			<h1 class="page-header">
-				Usuários ativos <small>Lista de usuários ativos</small>
+				Usuários Ativos <small>Lista de usuários ativos</small>
 			</h1>
 		</div>
 	</div>
@@ -22,14 +22,16 @@
 				<th>Sessão</th>
 				<th>E-Mail</th>
 				<th>Expira</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="item" items="${list}">
 				<tr>
 					<td>${item.key}</td>
-					<td>${item.email}</td>
-					<td>${item.expires}</td>
+					<td width="100%">${item.email}</td>
+					<td nowrap="nowrap">${item.expires}</td>
+					<td align="center">${item.status}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

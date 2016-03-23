@@ -195,4 +195,28 @@ $(document).ready(function() {
         //console.log(document.cookie);
     });
 
+    // Get viewers
+    
+    $viewer = function() {
+    	$.ajax({
+    		async: true,
+        	cache: false,
+        	dataType: 'json',
+        	url: '/viewer' 
+        })
+        .done(function(data) {
+        	//console.log(data)
+        	$html = '<b>Usuários ativos</b>';
+        	$.each(data, function(key, val) {
+        		$html += '<br/>' + val.email;
+        	});
+    		$('#viewer').html($html);
+        	setTimeout($viewer, 10000); // 10s
+    	})
+    	.fail(function() {
+    		console.log('ERROR: at viewers');
+    	});
+    };
+    
+    $viewer();
 });
