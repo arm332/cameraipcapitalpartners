@@ -41,9 +41,12 @@
   </servlet-mapping>
   <!--  TESTING -->
   <session-config>
-    <session-timeout>5</session-timeout>
+    <session-timeout>15</session-timeout>
   </session-config>
-  <!-- <servlet>
+  <!-- <listener>
+    <listener-class>com.example.cameraipcapitalpartners.listener.SessionListener</listener-class>
+  </listener>
+  <servlet>
     <servlet-name>_ah_sessioncleanup</servlet-name>
     <servlet-class>com.google.apphosting.utils.servlet.SessionCleanupServlet</servlet-class>
   </servlet>
@@ -59,8 +62,5 @@
     <auth-constraint>
       <role-name>admin</role-name>
     </auth-constraint>
-  </security-constraint>
-  <listener>
-    <listener-class>com.example.cameraipcapitalpartners.listener.SessionListener</listener-class>
-  </listener> -->
+  </security-constraint> -->
 </web-app>

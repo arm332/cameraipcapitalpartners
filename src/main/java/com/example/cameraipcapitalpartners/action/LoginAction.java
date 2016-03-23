@@ -8,18 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.example.cameraipcapitalpartners.model.Profile;
-import com.example.cameraipcapitalpartners.model.Viewer;
 import com.example.cameraipcapitalpartners.service.ProfileService;
 import com.example.cameraipcapitalpartners.service.ProfileServiceImpl;
-import com.example.cameraipcapitalpartners.service.ViewerService;
-import com.example.cameraipcapitalpartners.service.ViewerServiceImpl;
 import com.google.appengine.api.users.User;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 
 public class LoginAction extends ActionAdapter {
 	private static final Logger log = Logger.getLogger(LoginAction.class.getName());
-	
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		String view = "/login.jsp";
@@ -39,10 +36,8 @@ public class LoginAction extends ActionAdapter {
 			if (profile != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("email", email);
-				log.info("Session login: " + session.getId()
-						+ "; e-mail: " + session.getAttribute("email"));
-				ViewerService viewerService = new ViewerServiceImpl();
-				viewerService.save(new Viewer(session.getId(), email));
+				log.info("Session login: " + session.getId() 
+					+ "; e-mail: " + session.getAttribute("email"));
 				return "redirect:/";
 			}
 			
@@ -53,4 +48,5 @@ public class LoginAction extends ActionAdapter {
 		request.setAttribute("loginUrl", loginUrl);
 		return view;
 	}
+	
 }
