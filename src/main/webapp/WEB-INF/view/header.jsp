@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,18 +33,19 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li> <!--  class="active" -->
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="/camera">Câmeras</a></li>
-							<!-- <li><a href="/product">Produtos</a></li> -->
-							<li><a href="/profile">Usuários</a></li>
-							<!-- <li role="separator" class="divider"></li>
-							<li class="dropdown-header">Nav header</li>
-							<li><a href="#">Separated link</a></li>
-							<li><a href="#">One more separated link</a></li> -->
-		                </ul>
-					</li>
+					<!-- <li><a href="/viewer">Usuários</a></li> -->
+					
+					<c:if test="${sessionScope.status == 1}">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/admin/camera">Câmeras</a></li>
+								<!-- <li><a href="/admin/product">Produtos</a></li> -->
+								<li><a href="/admin/profile">Usuários</a></li>
+			                </ul>
+						</li>
+					</c:if>
+					
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.email} <span class="caret"></span></a>
 						<ul class="dropdown-menu">

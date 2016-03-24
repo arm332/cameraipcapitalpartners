@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="header.jsp" />
+<jsp:include page="../header.jsp" />
 <!-- Page Content -->
 <div class="container">
 
@@ -32,13 +32,13 @@
 					<!-- <td>${item.id}</td> -->
 					<td class="text-center">${item.position}</td>
 					<td>${item.title}</td>
-					<td><a href="/camera?load&id=${item.id}"
+					<td><a href="/admin/camera?load&id=${item.id}"
 						class="btn btn-primary">Editar</a></td>
-					<td><a href="/camera?delete&id=${item.id}"
+					<td><a href="/admin/camera?delete&id=${item.id}"
 						class="btn btn-danger" onclick="return confirm('Are you sure?')">Excluir</a></td>
 					<!-- <td><a href="#" class="btn btn-danger"
 						data-message="Excluir o item selecionado?"
-						data-href="/camera?delete&id=${item.id}"
+						data-href="/admin/camera?delete&id=${item.id}"
 						data-toggle="modal" data-target="#confirm-dialog">Excluir</a></td> -->
 				</tr>
 			</c:forEach>
@@ -46,7 +46,7 @@
 	</table>
 
 	<p>
-		<a href="/camera?load" class="btn btn-primary">Novo</a>
+		<a href="/admin/camera?load" class="btn btn-primary">Novo</a>
 	</p>
 
 </c:if>
@@ -62,7 +62,7 @@
 	</div>
 	<!-- /.row -->
 
-	<form method="POST" action="/camera?save" class="form-horizontal">
+	<form method="POST" action="/admin/camera?save" class="form-horizontal">
 		<input type="hidden" name="id" value="${item.id}">
 		<!-- <div class="form-group">
 			<label class="col-md-2 control-label">Código</label>
@@ -116,4 +116,4 @@
 
 </div>
 <!-- /.container -->
-<jsp:include page="footer.jsp" />
+<jsp:include page="../footer.jsp" />

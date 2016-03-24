@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="header.jsp" />
+<jsp:include page="../header.jsp" />
 <!-- Page Content -->
 <div class="container">
 
@@ -30,13 +30,13 @@
 				<tr>
 					<td>${item.email}</td>
 					<td>${item.name}</td>
-					<td><a href="/profile?load&email=${item.email}"
+					<td><a href="/admin/profile?load&email=${item.email}"
 						class="btn btn-primary">Editar</a></td>
-					<td><a href="/profile?delete&email=${item.email}"
+					<td><a href="/admin/profile?delete&email=${item.email}"
 						class="btn btn-danger" onclick="return confirm('Are you sure?')">Excluir</a></td>
 					<!-- <td><a href="#" class="btn btn-danger"
 						data-message="Excluir o item selecionado?"
-						data-href="/profile?delete&email=${item.email}"
+						data-href="/admin/profile?delete&email=${item.email}"
 						data-toggle="modal" data-target="#confirm-dialog">Excluir</a></td> -->
 				</tr>
 			</c:forEach>
@@ -44,7 +44,7 @@
 	</table>
 
 	<p>
-		<a href="/profile?load" class="btn btn-primary">Novo</a>
+		<a href="/admin/profile?load" class="btn btn-primary">Novo</a>
 	</p>
 </c:if>
 
@@ -59,7 +59,7 @@
 	</div>
 	<!-- /.row -->
 
-	<form method="POST" action="/profile?save" class="form-horizontal">
+	<form method="POST" action="/admin/profile?save" class="form-horizontal">
 		<input type="hidden" name="old" value="${item.email}">
 		<div class="form-group">
 			<label for="email" class="col-md-2 control-label">E-Mail</label>
@@ -76,6 +76,15 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label for="status" class="col-md-2 control-label">Status</label>
+			<div class="col-md-2">
+				<select class="form-control" id="status" name="status">
+					<option value="0">Usuário</option>
+					<option value="1"${item.status == 1 ? " selected" : ""}>Administrador</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
 				<button type="submit" class="btn btn-primary">Salvar</button>
 				<a href="javascript:history.back();" class="btn btn-default">Voltar</a>
@@ -86,4 +95,4 @@
 
 </div>
 <!-- /.container -->
-<jsp:include page="footer.jsp" />
+<jsp:include page="../footer.jsp" />

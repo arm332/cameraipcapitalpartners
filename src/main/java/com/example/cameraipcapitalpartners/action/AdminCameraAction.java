@@ -11,14 +11,14 @@ import com.example.cameraipcapitalpartners.service.CameraService;
 import com.example.cameraipcapitalpartners.service.CameraServiceImpl;
 import com.example.cameraipcapitalpartners.util.Util;
 
-public class CameraAction extends ActionAdapter {
+public class AdminCameraAction extends ActionAdapter {
 	private CameraService service = new CameraServiceImpl();
 
 	@Override
 	public String list(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		List<Camera> list = service.list();
 		request.setAttribute("list", list);
-		return "/camera.jsp";
+		return "/admin/camera.jsp";
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class CameraAction extends ActionAdapter {
 		Long id = Util.tryParseLong(aux);
 		Camera item = service.load(id);
 		request.setAttribute("item", item);
-		return "/camera.jsp";
+		return "/admin/camera.jsp";
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class CameraAction extends ActionAdapter {
 		Integer position = Util.tryParseInt(aux);
 		Camera item = new Camera(id, title, description, url, interval, position);
 		service.save(item);
-		return "redirect:/camera";
+		return "redirect:/admin/camera";
 	}
 
 	@Override
@@ -52,7 +52,7 @@ public class CameraAction extends ActionAdapter {
 		String aux = request.getParameter("id");
 		Long id = Util.tryParseLong(aux);
 		service.delete(id);
-		return "redirect:/camera";
+		return "redirect:/admin/camera";
 	}
 	
 }

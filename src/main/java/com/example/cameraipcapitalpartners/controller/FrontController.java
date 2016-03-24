@@ -28,8 +28,16 @@ public class FrontController extends HttpServlet {
 		if (!path.startsWith("/login")) {
 			HttpSession session = request.getSession(false);
 			
-			if(session == null || session.getAttribute("email") == null) {
+			if (session == null || session.getAttribute("email") == null) {
 				response.sendRedirect("/login");
+				//response.sendError(403);
+				return;
+			}
+			
+			int status = (int) session.getAttribute("status");
+			
+			if (path.startsWith("/admin") && status != 1) {
+				response.sendRedirect("/");
 				//response.sendError(403);
 				return;
 			}

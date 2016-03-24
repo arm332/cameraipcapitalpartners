@@ -20,18 +20,18 @@ public class ActionFactory {
 	}
 	
 	private static String getClassName(String path) {
-		String name = path.equals("/") ? "Home" : toUpperFirst(path);
+		String name = path.equals("/") ? "Home" : toCamelCase(path);
 		String packageName = ActionFactory.class.getPackage().getName();
 		return packageName + "." + name + "Action";
 	}
 	
-	private static String toUpperFirst(String path) {
+	/*private static String toUpperFirst(String path) {
 		String str = path.replaceAll("/", "");
 		return str.substring(0, 1).toUpperCase()
 				+ str.substring(1).toLowerCase();
-	}
+	}*/
 	
-	/*private static String toCamelCase(String path) {
+	private static String toCamelCase(String path) {
 		StringBuilder out = new StringBuilder();
 		String[] arr = path.split("/");
 		
@@ -43,5 +43,5 @@ public class ActionFactory {
 		}
 		
 		return out.toString();
-	}*/
+	}
 }

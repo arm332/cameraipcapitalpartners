@@ -29,15 +29,21 @@ public class LoginAction extends ActionAdapter {
 			String domain = email.substring(email.indexOf('@'));
 			ProfileService profileService = new ProfileServiceImpl();
 			
-			// First try to login by domain, them by e-mail
-			Profile profile = profileService.load(domain);
-			if (profile == null) profile = profileService.load(email);
+			// First try to login by e-mail (to get user status),
+			// then by domain
+			Profile profile = profileService.load(email);
+			
+			if (profile == null) 
+				profile = profileService.load(domain);
 			
 			if (profile != null) {
+				int status = profile.getStatus();
 				HttpSession session = request.getSession();
 				session.setAttribute("email", email);
+				session.setAttribute("status", status);
 				log.info("Session login: " + session.getId() 
-					+ "; e-mail: " + session.getAttribute("email"));
+					+ "; e-mail: " + session.getAttribute("email")
+					+ "; status: " + session.getAttribute("status"));
 				return "redirect:/";
 			}
 			
