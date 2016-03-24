@@ -13,15 +13,17 @@ public class Profile {
 	@Parent public Key<Project> project;
 	@Id public String email;
 	public String name;
+	public Integer status;
 	
 	public Profile() {
 		this.project = Key.create(Project.class, Constant.PROJECT_NAME);
 	}
 
-	public Profile(String email, String name) {
+	public Profile(String email, String name, Integer status) {
 		this();
 		this.email = email;
 		this.name = name;
+		this.status = status;
 	}
 
 	public Key<Project> getProject() {
@@ -47,4 +49,13 @@ public class Profile {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
+	
 }

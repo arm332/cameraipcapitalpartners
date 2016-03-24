@@ -76,6 +76,15 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label for="status" class="col-md-2 control-label">Status</label>
+			<div class="col-md-2">
+				<select class="form-control" id="status" name="status">
+					<option value="0">Usuário</option>
+					<option value="1"${item.status == 1 ? " selected" : ""}>Administrador</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
 			<div class="col-md-offset-2 col-md-10">
 				<button type="submit" class="btn btn-primary">Salvar</button>
 				<a href="javascript:history.back();" class="btn btn-default">Voltar</a>

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.example.cameraipcapitalpartners.model.Profile;
 import com.example.cameraipcapitalpartners.service.ProfileService;
 import com.example.cameraipcapitalpartners.service.ProfileServiceImpl;
+import com.example.cameraipcapitalpartners.util.Util;
 
 public class ProfileAction extends ActionAdapter {
 	private ProfileService service = new ProfileServiceImpl();
@@ -32,7 +33,10 @@ public class ProfileAction extends ActionAdapter {
 	public String save(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		String email = request.getParameter("email");
 		String name = request.getParameter("name");
-		Profile item = new Profile(email, name);
+		String sStatus = request.getParameter("status");
+		Integer status = Util.tryParseInt(sStatus);
+		if (status == null || status < 0) status = 0;
+		Profile item = new Profile(email, name, status);
 		service.save(item);
 		// Because we are editing identities (to avoid NOT NULL and reduce costs)
 		String old = request.getParameter("old");
