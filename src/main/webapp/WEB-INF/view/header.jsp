@@ -27,7 +27,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="/">
-					<img src="/logo.png" alt="IP Capital Partners" height="48">
+					<img src="/logo.png" alt="IP Capital Partners">
 				</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
