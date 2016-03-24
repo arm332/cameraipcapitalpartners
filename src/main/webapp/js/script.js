@@ -211,7 +211,7 @@ $(document).ready(function() {
         		$html += '<br/>' + val.email;
         	});
     		$('#viewer').html($html);
-        	setTimeout($viewer, 10000); // 10s
+        	setTimeout($viewer, 60000); // 1m
     	})
     	.fail(function() {
     		console.log('ERROR: at viewers');

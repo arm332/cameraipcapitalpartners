@@ -42,7 +42,7 @@
 								<li><a href="/admin/camera">Câmeras</a></li>
 								<!-- <li><a href="/admin/product">Produtos</a></li> -->
 								<li><a href="/admin/profile">Usuários</a></li>
-			                </ul>
+			                                </ul>
 						</li>
 					</c:if>
 					
