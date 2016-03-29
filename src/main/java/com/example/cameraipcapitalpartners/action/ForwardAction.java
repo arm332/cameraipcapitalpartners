@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,10 +15,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.common.io.BaseEncoding;
 
 public class ForwardAction extends ActionAdapter {
+	private static final String CAM = "http://cam.foobar/image.jpg";
+	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
 		String param = request.getParameter("url"); // /forward?url=URL
+		String cam = request.getParameter("cam"); // /forward?cam=CAM
+		if (cam != null) param = CAM.replace("cam", cam);
+		
 		response.setContentType("image/jpeg");
 		BufferedOutputStream output = null;
 		BufferedInputStream input = null;
