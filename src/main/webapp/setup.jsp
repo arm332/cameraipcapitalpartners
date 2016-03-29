@@ -17,15 +17,16 @@ try {
 	Entity project = new Entity("Project", "default");
     datastore.put(txn, project);
     Key projectKey = project.getKey();
-    /*
+    
     final String[] profiles = {"arm332@gmail.com", "test@example.com"};
     
     for (int i = 0; i < profiles.length; i++) {
 	    Entity entity = new Entity("Profile", profiles[i], projectKey);
 	    entity.setUnindexedProperty("name", profiles[i]);
+	    entity.setUnindexedProperty("status", 1);
 	    datastore.put(txn, entity);
     }
-    
+    /*
     final int CAMERA_COUNT = 15;
     
     for (int i = 0; i < CAMERA_COUNT; i++) {
