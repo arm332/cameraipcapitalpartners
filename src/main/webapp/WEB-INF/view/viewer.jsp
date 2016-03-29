@@ -5,7 +5,7 @@
 <!-- Page Content -->
 <div class="container">
 
-<c:if test="${list != null}">
+<c:if test="${map != null}">
 	<!-- Page Heading -->
 	<div class="row">
 		<div class="col-lg-12">
@@ -19,19 +19,15 @@
 	<table class="table table-hover table-striped">
 		<thead>
 			<tr>
-				<th>Sessão</th>
 				<th>E-Mail</th>
 				<th>Expira</th>
-				<th>Status</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="item" items="${list}">
+			<c:forEach var="entry" items="${map}">
 				<tr>
-					<td>${item.key}</td>
-					<td width="100%">${item.email}</td>
-					<td nowrap="nowrap">${item.expires}</td>
-					<td align="center">${item.status}</td>
+					<td width="100%">${entry.key}</td>
+					<td nowrap="nowrap">${entry.value}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

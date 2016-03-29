@@ -208,10 +208,11 @@ $(document).ready(function() {
         	//console.log(data)
         	$html = '<b>Usuários ativos</b>';
         	$.each(data, function(key, val) {
-        		$html += '<br/>' + val.email;
+        		$html += '<br/>' + key;
         	});
+        	//$html += '<br/>' + new Date();
     		$('#viewer').html($html);
-        	setTimeout($viewer, 60000); // 1m
+        	setTimeout($viewer, 1000 * 60 * 1); // 1 min
     	})
     	.fail(function() {
     		console.log('ERROR: at viewers');
