@@ -43,13 +43,18 @@ div>p {
 	<p>http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0</p>
 </div>
 <div>
-	<h1>Proxy Java com URL</h1>
-	<img src="http://cameraipcapitalpartners.appspot.com/forward?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0">
+	<h1>Proxy Java e Proxy PHP</h1>
+	<img src="/forward?url=http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0">
+	<p>http://cameraipcapitalpartners.appspot.com/forward?url=http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0</p>
+</div>
+<div>
+	<h1>Proxy Java e URL</h1>
+	<img src="/forward?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0">
 	<p>http://cameraipcapitalpartners.appspot.com/forward?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0</p>
 </div>
 <div>
-	<h1>Proxy Java com ID</h1>
-	<img src="http://cameraipcapitalpartners.appspot.com/forward?cam=cam11&cache=0&rnd=0">
+	<h1>Proxy Java e CAM ID</h1>
+	<img src="/forward?cam=cam11&cache=0&rnd=0">
 	<p>http://cameraipcapitalpartners.appspot.com/forward?cam=cam11&cache=0&rnd=0</p>
 </div>
 <div>
