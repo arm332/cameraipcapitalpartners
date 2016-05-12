@@ -74,6 +74,14 @@ $(document).ready(function() {
         //console.log($img.data('interval'));
         $trigger($img);
     });
+    
+    // Change all cameras loading interval
+
+    $('.pull-right ul li a').on('click', function() {
+        $('.cam ul li a:contains(' + $(this).text() + ')').each(function() {
+        	$(this).click();
+        });
+    });
 
     // On show camera dialog event
 

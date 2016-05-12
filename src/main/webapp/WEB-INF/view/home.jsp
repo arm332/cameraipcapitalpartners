@@ -11,6 +11,24 @@
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
+	        <div class="pull-right">
+				<div class="btn-group" role="group">
+				    <button type="button" class="btn btn-default dropdown-toggle"
+				        aria-haspopup="true" aria-expanded="false"
+				        data-toggle="dropdown" title="Atualizar tudo a cada">Intervalo
+				        	<span class="caret"></span>
+				    </button>
+				    <ul class="dropdown-menu pull-right">
+				        <!-- <li><a href="javascript:void(0)">1 s</a></li> -->
+				        <li><a href="javascript:void(0)">2 s</a></li>
+				        <li><a href="javascript:void(0)">5 s</a></li>
+				        <li><a href="javascript:void(0)">10 s</a></li>
+				        <li><a href="javascript:void(0)">30 s</a></li>
+				        <li><a href="javascript:void(0)">60 s</a></li>
+				        <!-- <li><a href="javascript:void(0)">Vídeo</a></li> -->
+				    </ul>
+				</div>
+	        </div>
             <h1 class="page-header">
                 Home <small>Câmeras</small>
             </h1>
@@ -76,7 +94,7 @@
                                 <c:if test="${fn:length(tokens) > 1}">
                                     <c:set var="token" value="${fn:trim(tokens[1])}" />
                                     | <a href="skype:${token}?call">Call</a>
-                                    | <a href="skype:${token}">Chat</a>
+                                    | <a href="skype:${token}?chat">Chat</a>
                                 </c:if>
                             </li>
                         </c:if>
