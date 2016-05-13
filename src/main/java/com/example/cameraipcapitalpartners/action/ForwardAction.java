@@ -18,6 +18,20 @@ import com.google.common.io.BaseEncoding;
 public class ForwardAction extends ActionAdapter {
 	private static String sCam = null;
 	
+	private static synchronized String getSCam() {
+		if (sCam == null) {
+			try {
+				InputStream input = ForwardAction.class.getClassLoader().getResourceAsStream("forward.properties");
+				Properties properties = new Properties();
+				properties.load(input);
+				sCam = properties.getProperty("cam");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		return sCam;
+	}
+
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
@@ -25,7 +39,14 @@ public class ForwardAction extends ActionAdapter {
 		String cam = request.getParameter("cam"); // /forward?cam=CAM
 		
 		if (cam != null) {
-			param = getSCam().replace("cam", cam);
+			//param = getSCam().replace("cam", cam);
+			// TODO - remove this after tests
+			if (cam.equals("casa")) {
+				param = "http://189.122.162.212:8080/photo.jpg";
+			}
+			else {
+				param = getSCam().replace("cam", cam);
+			}
 		}
 		
 		response.setContentType("image/jpeg");
@@ -69,19 +90,5 @@ public class ForwardAction extends ActionAdapter {
 		}
 		
 		return null;
-	}
-	
-	private static synchronized String getSCam() {
-		if (sCam == null) {
-			try {
-				InputStream input = ForwardAction.class.getClassLoader().getResourceAsStream("forward.properties");
-				Properties properties = new Properties();
-				properties.load(input);
-				sCam = properties.getProperty("cam");
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		return sCam;
 	}
 }
