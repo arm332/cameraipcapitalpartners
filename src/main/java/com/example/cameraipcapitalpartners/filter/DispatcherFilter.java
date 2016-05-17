@@ -20,7 +20,9 @@ public class DispatcherFilter implements Filter {
 		String uri = req.getRequestURI();
 		//System.out.println("uri: " + uri);
 		
-		if (!uri.startsWith("/_ah") && !uri.startsWith("/setup") && !uri.startsWith("/test")) {
+		if (!uri.startsWith("/_ah") 
+				&& !uri.startsWith("/setup") && !uri.startsWith("/test")
+				&& !uri.startsWith("/.well-known/acme-challenge")) {
 			// forward the request to the front controller
 			req.getRequestDispatcher(FRONT_CONTROLLER + uri).forward(request, response);
 		}
