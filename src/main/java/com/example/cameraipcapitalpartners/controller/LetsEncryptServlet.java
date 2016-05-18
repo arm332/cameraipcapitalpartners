@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 public class LetsEncryptServlet extends HttpServlet {
 	private static final long serialVersionUID = -7339246115145842372L;
 	
-	private static final String CHALLENGE_NAME = "QLMQxGJAy31mfhU4C4jEjcCPq-xIok4RR8uuG0SBYbM";
-	private static final String CHALLENGE_VALUE = "QLMQxGJAy31mfhU4C4jEjcCPq-xIok4RR8uuG0SBYbM.CQvaglKJmJOI544HySzODNnhSQFaaM8c9ceDfIhz7ho";
-	
+	private static final String CHALLENGE_NAME = "yegbiwTIdv2mDa_3uuzpFmHMUL0t06K0WIQg28kYkWk";
+	private static final String CHALLENGE_VALUE = "yegbiwTIdv2mDa_3uuzpFmHMUL0t06K0WIQg28kYkWk.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ";
+		
 	public LetsEncryptServlet() {
         super();
     }
