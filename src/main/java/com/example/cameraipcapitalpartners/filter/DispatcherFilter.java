@@ -17,9 +17,9 @@ public class DispatcherFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		String uri = req.getRequestURI();
-		//System.out.println("uri: " + uri);
+		System.out.println("uri: " + uri);
 		
-		if (!uri.startsWith("/_ah") && !uri.startsWith("/setup") && !uri.startsWith("/test")) {
+		if (!uri.startsWith("/_ah") && !uri.endsWith(".jsp")) {
 			// forward the request to the front controller
 			req.getRequestDispatcher(FRONT_CONTROLLER + uri).forward(request, response);
 		}
