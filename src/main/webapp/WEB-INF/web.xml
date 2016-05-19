@@ -31,16 +31,6 @@
   </filter-mapping>
   <servlet>
     <description></description>
-    <display-name>LetsEncryptServlet</display-name>
-    <servlet-name>LetsEncryptServlet</servlet-name>
-    <servlet-class>com.example.cameraipcapitalpartners.controller.LetsEncryptServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>LetsEncryptServlet</servlet-name>
-    <url-pattern>/.well-known/acme-challenge/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>FrontController</display-name>
     <servlet-name>FrontController</servlet-name>
     <servlet-class>com.example.cameraipcapitalpartners.controller.FrontController</servlet-class>

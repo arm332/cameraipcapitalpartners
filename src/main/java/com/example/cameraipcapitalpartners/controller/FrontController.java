@@ -25,7 +25,7 @@ public class FrontController extends HttpServlet {
 		String path = request.getPathInfo();
 		//System.out.println("path: " + path);
 		
-		if (!path.startsWith("/login")) {
+		if (!path.startsWith("/login") && !path.startsWith("/.well-known")) {
 			HttpSession session = request.getSession(false);
 			
 			if (session == null || session.getAttribute("email") == null) {
