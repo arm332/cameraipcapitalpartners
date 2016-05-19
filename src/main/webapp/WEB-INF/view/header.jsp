@@ -33,7 +33,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li> <!--  class="active" -->
-					<!-- <li><a href="/viewer">Usuários</a></li> -->
+					<!-- <li><a href="/viewers">Usuários</a></li> -->
 					
 					<c:if test="${sessionScope.status == 1}">
 						<li class="dropdown">

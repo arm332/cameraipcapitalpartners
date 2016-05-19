@@ -10,7 +10,7 @@
                     <p>Copyright &copy; 2016, Investidor Profissional.</p>
                 </div>
                 <div class="col-md-6">
-                	<p class="text-right" id="viewer"></p>
+                	<p class="text-right" id="viewers"></p>
                 </div>
             </div>
             <!-- /.row -->

@@ -203,14 +203,14 @@ $(document).ready(function() {
         //console.log(document.cookie);
     });
 
-    // Get viewers
+    // Get current on-line viewers
     
-    $viewer = function() {
+    $viewers = function() {
     	$.ajax({
     		async: true,
         	cache: false,
         	dataType: 'json',
-        	url: '/viewer' 
+        	url: '/viewers' 
         })
         .done(function(data) {
         	//console.log(data)
@@ -219,13 +219,13 @@ $(document).ready(function() {
         		$html += '<br/>' + key;
         	});
         	//$html += '<br/>' + new Date();
-    		$('#viewer').html($html);
-        	setTimeout($viewer, 1000 * 60 * 1); // 1 min
+    		$('#viewers').html($html);
+        	setTimeout($viewers, 1000 * 60 * 1); // 1 min
     	})
     	.fail(function() {
     		console.log('ERROR: at viewers');
     	});
     };
     
-    $viewer();
+    $viewers();
 });

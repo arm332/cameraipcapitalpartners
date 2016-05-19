@@ -16,7 +16,7 @@ import com.google.appengine.api.memcache.MemcacheService;
 import com.google.appengine.api.memcache.MemcacheServiceFactory;
 import com.google.gson.Gson;
 
-public class ViewerAction extends ActionAdapter {
+public class ViewersAction extends ActionAdapter {
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -60,7 +60,7 @@ public class ViewerAction extends ActionAdapter {
 		}
 		
 		request.setAttribute("map", viewers);
-		return "/viewer.jsp";
+		return "/viewers.jsp";
 	}
 	
 }
