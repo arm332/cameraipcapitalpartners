@@ -1,5 +1,8 @@
-# Câmera Investidor Profissional
+# Cameras
 
-Apresentação de cameras IP, sob authenticação do Google Single Sign On, em aplicativo para o Google App Engine.
+Atualização tecnológica do sistema de cameras da IP Capital Partners visando:
 
-http://cameraipcapitalpartners.appspot.com
+- Desktop e dispositivos móveis
+- Linguagem Java
+- Google Single Sign On
+- Plataforma Google App Engine.
