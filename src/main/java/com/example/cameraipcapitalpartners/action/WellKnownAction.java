@@ -11,10 +11,10 @@ public class WellKnownAction extends ActionAdapter {
 	private static final Map<String, String> challenges = new HashMap<>();
 	
 	static {
-        challenges.put("QLMQxGJAy31mfhU4C4jEjcCPq-xIok4RR8uuG0SBYbM", 
-        		"TEST");
         challenges.put("yegbiwTIdv2mDa_3uuzpFmHMUL0t06K0WIQg28kYkWk", 
         		"yegbiwTIdv2mDa_3uuzpFmHMUL0t06K0WIQg28kYkWk.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
+        challenges.put("oGEWKdIjJf041dLgJk9VV2ZLWAPoQmb_xDym0rff3iQ", 
+        		"oGEWKdIjJf041dLgJk9VV2ZLWAPoQmb_xDym0rff3iQ.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
     }
 		
 	@Override
