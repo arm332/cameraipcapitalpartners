@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="header.jsp" />
 <!-- Page Content -->
 <div class="container-fluid">
@@ -38,26 +38,34 @@
 
     <div class="row">
         <c:forEach var="item" items="${list}">
+            <c:set var="label" value="${item.interval} s"></c:set>
+            <c:set var="state" value=""></c:set>
+            <c:if test="${item.interval == 0}">
+                <c:set var="label" value="Vídeo"></c:set>
+                <c:set var="state" value="disabled"></c:set>
+            </c:if>
         
             <!-- Camera ${item} -->
             <div class="cam col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div class="btn-group" role="group">
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-default dropdown-toggle"
+                        <button type="button" class="btn btn-default dropdown-toggle ${state}"
                             aria-haspopup="true" aria-expanded="false"
                             data-toggle="dropdown" title="Atualizar a cada">
-                            ${item.interval} ${not empty item.interval ? 's' : 'Vídeo'}
-                            <span class="caret"></span>
+                            <%-- ${item.interval} ${item.interval > 0 ? 's' : 'Vídeo'} --%>
+                            ${label} <span class="caret"></span>
                         </button>
-                        <ul class="dropdown-menu">
-                            <!-- <li><a href="javascript:void(0)">1 s</a></li> -->
-                            <li><a href="javascript:void(0)">2 s</a></li>
-                            <li><a href="javascript:void(0)">5 s</a></li>
-                            <li><a href="javascript:void(0)">10 s</a></li>
-                            <li><a href="javascript:void(0)">30 s</a></li>
-                            <li><a href="javascript:void(0)">60 s</a></li>
-                            <!-- <li><a href="javascript:void(0)">Vídeo</a></li> -->
-                        </ul>
+                        <c:if test="${item.interval != 0}">
+	                        <ul class="dropdown-menu">
+	                            <!-- <li><a href="javascript:void(0)">1 s</a></li> -->
+	                            <li><a href="javascript:void(0)">2 s</a></li>
+	                            <li><a href="javascript:void(0)">5 s</a></li>
+	                            <li><a href="javascript:void(0)">10 s</a></li>
+	                            <li><a href="javascript:void(0)">30 s</a></li>
+	                            <li><a href="javascript:void(0)">60 s</a></li>
+	                            <!-- <li><a href="javascript:void(0)">Vídeo</a></li> -->
+	                        </ul>
+                        </c:if>
                     </div>
 
                     <button type="button" class="btn btn-default"

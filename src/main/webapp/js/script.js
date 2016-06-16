@@ -41,7 +41,8 @@ $(document).ready(function() {
         }
         else {
             // Video
-            $src = $url.replace(/image.jpg/i, 'video.cgi');
+            //$src = $url.replace(/image.jpg/i, 'video.cgi');
+        	$src = $url;
         }
 
         $(img).attr('src', $src);
