@@ -15,6 +15,8 @@ public class WellKnownAction extends ActionAdapter {
         		"yegbiwTIdv2mDa_3uuzpFmHMUL0t06K0WIQg28kYkWk.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
         challenges.put("oGEWKdIjJf041dLgJk9VV2ZLWAPoQmb_xDym0rff3iQ", 
         		"oGEWKdIjJf041dLgJk9VV2ZLWAPoQmb_xDym0rff3iQ.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
+        challenges.put("3co9vhNswMOm_kX4WzBjZZOUddqVIRgQQuWWQQ_S8Iw",
+        		"3co9vhNswMOm_kX4WzBjZZOUddqVIRgQQuWWQQ_S8Iw.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
     }
 		
 	@Override
