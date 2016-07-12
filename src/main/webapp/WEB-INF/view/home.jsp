@@ -37,7 +37,7 @@
     <!-- /.row -->
 
     <div class="row">
-        <c:forEach var="item" items="${list}">
+        <c:forEach var="item" items="${list}" varStatus="status">
             <c:set var="label" value="${item.interval} s"></c:set>
             <c:set var="state" value=""></c:set>
             <c:if test="${item.interval == 0}">
@@ -110,6 +110,17 @@
                 </ul>
             </div>
             
+            <c:if test="${status.count % 4 == 0}">
+                <div class="clearfix visible-lg"></div>
+            </c:if>
+
+            <c:if test="${status.count % 3 == 0}">
+                <div class="clearfix visible-md"></div>
+            </c:if>
+
+            <c:if test="${status.count % 2 == 0}">
+                <div class="clearfix visible-sm"></div>
+            </c:if> 
         </c:forEach>
     </div>
     <!-- /.row -->

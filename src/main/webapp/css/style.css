@@ -67,11 +67,6 @@ body {
 	float: right;
 }
 
-.cam>img {
-	width: 320px;
-	height: 240px;
-}
-
 /* CRUD */
 
 .table>tbody>tr>td {
