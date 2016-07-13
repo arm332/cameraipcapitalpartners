@@ -9,23 +9,17 @@
 </head>
 <body>
 <%
-String first_name = "http://189.122.162.246:8080/";
+String first_name = "http://localhost:8080/";
 if (request.getParameter("first_name") != null)
 	first_name = request.getParameter("first_name");
 %>
 <h1>Test</h1>
-<!-- 189.122.162.246:8080 -->
 <form action="test.jsp" method="POST">
 <input name="first_name" value="<%=first_name%>">
 <input type="submit">
 </form>
-<p>
-<img src="<%=first_name%>" width="320" height="240">
-<p>
-<video src="<%=first_name%>" width="320" height="240" controls>
-  Seu navegador não suporta o elemento <code>video</code>.
-</video>
-<!-- 
+<p><img src="<%=first_name%>" alt="..."></p>
+<!--
 <h1>Proxy PHP</h1>
 <img src="http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0"
 	title="http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0">
