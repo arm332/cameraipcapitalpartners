@@ -62,7 +62,7 @@ $(document).ready(function() {
         clearTimeout($timer[$id]);
         $src = $(this).attr('src');
         console.log('Error, id: ' + $id + ', src: ' + $src);
-        $(this).attr('src', 'image320x240.png');
+        $(this).attr('src', 'placeholder.png');
     });
 
     // Change camera loading interval
@@ -91,9 +91,10 @@ $(document).ready(function() {
         $(this).find('.modal-title').text($header.text());
         $camimg = $(e.relatedTarget).parents('.cam').find('img');
     	$dlgimg = $(this).find('.modal-body').find('img');
-    	$dlgimg.data('interval', $camimg.data('interval'))
+    	$dlgimg.data('interval', $camimg.data('interval'));
         $dlgimg.data('url', $camimg.data('url'));
     	$dlgimg.attr('src', $camimg.data('url'));
+    	$dlgimg.attr('alt', $header.text());
         $trigger($dlgimg);
     });
 
@@ -188,7 +189,6 @@ $(document).ready(function() {
     	$dropped = null;
     	
     	console.log("drop")
-    	
     	
     	// Save cumstom order cookie
         var order = [];

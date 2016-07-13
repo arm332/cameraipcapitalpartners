@@ -11,24 +11,6 @@
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
-	        <div class="pull-right">
-				<div class="btn-group" role="group">
-				    <button type="button" class="btn btn-default dropdown-toggle"
-				        aria-haspopup="true" aria-expanded="false"
-				        data-toggle="dropdown" title="Atualizar tudo a cada">Intervalo
-				        	<span class="caret"></span>
-				    </button>
-				    <ul class="dropdown-menu pull-right">
-				        <!-- <li><a href="javascript:void(0)">1 s</a></li> -->
-				        <li><a href="javascript:void(0)">2 s</a></li>
-				        <li><a href="javascript:void(0)">5 s</a></li>
-				        <li><a href="javascript:void(0)">10 s</a></li>
-				        <li><a href="javascript:void(0)">30 s</a></li>
-				        <li><a href="javascript:void(0)">60 s</a></li>
-				        <!-- <li><a href="javascript:void(0)">Vídeo</a></li> -->
-				    </ul>
-				</div>
-	        </div>
             <h1 class="page-header">
                 Home <small>Câmeras</small>
             </h1>
@@ -46,7 +28,8 @@
             </c:if>
         
             <!-- Camera ${item} -->
-            <div class="cam col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <!-- <div class="cam col-lg-3 col-md-4 col-sm-6 col-xs-12"> -->
+            <div class="cam col-lg-4 col-md-6 col-sm-12">
                 <div class="btn-group" role="group">
                     <div class="btn-group" role="group">
                         <button type="button" class="btn btn-default dropdown-toggle ${state}"
@@ -84,9 +67,9 @@
 
                 <h4>${item.title}</h4>
 
-                <img src="image320x240.png" alt="${item.title}" 
-                	class="center-block img-responsive" id="img-${item.id}" 
-                	data-interval="${item.interval}" data-url="${item.url}">
+                <img src="placeholder.png" alt="${item.title}" 
+                	id="img-${item.id}" data-interval="${item.interval}" 
+                	data-url="${item.url}">
 
                 <ul class="list-unstyled collapse">
                     <%--http://stackoverflow.com/a/58060 --%>
@@ -110,31 +93,27 @@
                 </ul>
             </div>
             
-            <c:if test="${status.count % 4 == 0}">
+            <c:if test="${status.count % 3 == 0}">
                 <div class="clearfix visible-lg"></div>
             </c:if>
 
-            <c:if test="${status.count % 3 == 0}">
+            <c:if test="${status.count % 2 == 0}">
                 <div class="clearfix visible-md"></div>
             </c:if>
-
-            <c:if test="${status.count % 2 == 0}">
-                <div class="clearfix visible-sm"></div>
-            </c:if> 
         </c:forEach>
     </div>
     <!-- /.row -->
 
     <!-- Generic camera dialog -->
     <div class="modal fade" id="cam-dialog" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title">Ampliar</h4>
                 </div>
                 <div class="modal-body">
-                    <img src="image320x240.png" alt="..." class="center-block img-responsive" id="img-dialog" />
+                    <img src="placeholder.png" alt="Ampliar" id="img-dialog" />
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

@@ -67,6 +67,15 @@ body {
 	float: right;
 }
 
+.cam>img,
+.modal-body>img {
+	width: 100%;
+}
+
+.modal-md {
+	width: 50%;
+}
+
 /* CRUD */
 
 .table>tbody>tr>td {
