@@ -27,14 +27,14 @@ try {
 	    datastore.put(txn, entity);
     }
     /*
-    final int CAMERA_COUNT = 15;
+    final int CAMERA_COUNT = 9;
     
     for (int i = 0; i < CAMERA_COUNT; i++) {
         Entity entity = new Entity("Camera", (i + 1), projectKey);
         entity.setUnindexedProperty("title", "Camera " + (i + 1));
         entity.setUnindexedProperty("description", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium veniam exercitationem expedita laborum at voluptate. Labore, voluptates totam at aut nemo deserunt rem magni pariatur quos perspiciatis atque eveniet unde.");
-        entity.setUnindexedProperty("url", "image320x240.png");
-        entity.setUnindexedProperty("interval", 10);
+        entity.setUnindexedProperty("url", "placeholder.png");
+        entity.setUnindexedProperty("interval", 0);
         entity.setProperty("position", (i + 1));
         datastore.put(txn, entity);
     }
