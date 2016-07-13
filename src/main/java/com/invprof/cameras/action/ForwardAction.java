@@ -39,14 +39,7 @@ public class ForwardAction extends ActionAdapter {
 		String cam = request.getParameter("cam"); // /forward?cam=CAM
 		
 		if (cam != null) {
-			//param = getSCam().replace("cam", cam);
-			// TODO - remove this after tests
-			if (cam.equals("casa")) {
-				param = "http://189.122.162.212:8080/photo.jpg";
-			}
-			else {
-				param = getSCam().replace("cam", cam);
-			}
+			param = getSCam().replace("cam", cam);
 		}
 		
 		response.setContentType("image/jpeg");
