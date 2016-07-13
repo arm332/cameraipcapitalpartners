@@ -19,6 +19,7 @@ if (request.getParameter("first_name") != null)
 <input type="submit">
 </form>
 <p><img src="<%=first_name%>" alt="..."></p>
+<p><video src="<%=first_name%>"></video></p>
 <!--
 <h1>Proxy PHP</h1>
 <img src="http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0"

@@ -28,7 +28,7 @@ $(document).ready(function() {
         $url = $(img).data('url');
         $interval = $(img).data('interval');
         $cache = parseInt($interval);
-        if(isNaN($cache)) $cache = 10;
+        if(isNaN($cache)) $cache = 0;
 
         if ($cache > 0) {
             // Image
@@ -38,21 +38,16 @@ $(document).ready(function() {
                 .replace(/(rnd=)[^\&]+/, '$1' + $rnd);
 
             $timer[$id] = setTimeout($trigger, ($cache * 1000), img);
-        }
-        else {
-            // Video
-            //$src = $url.replace(/image.jpg/i, 'video.cgi');
-        	$src = $url;
+            $(img).attr('src', $src);
         }
 
-        $(img).attr('src', $src);
         //console.log('id: ' + $id + ', src: ' + $src + ', cache: ' + $cache);
     }
 
     // Start auto camera loading
 
     $('.cam img').one('load', function() {
-        $trigger(this);
+		$trigger(this);
     });
 
     // On camera loading error

@@ -20,11 +20,11 @@
 
     <div class="row">
         <c:forEach var="item" items="${list}" varStatus="status">
-            <c:set var="label" value="${item.interval} s"></c:set>
-            <c:set var="state" value=""></c:set>
-            <c:if test="${item.interval == 0}">
-                <c:set var="label" value="Vídeo"></c:set>
-                <c:set var="state" value="disabled"></c:set>
+			<c:set var="label" value="Vídeo"></c:set>
+			<c:set var="state" value="disabled"></c:set>
+            <c:if test="${item.interval > 0}">
+	            <c:set var="label" value="${item.interval} s"></c:set>
+    	        <c:set var="state" value=""></c:set>
             </c:if>
         
             <!-- Camera ${item} -->
@@ -38,7 +38,7 @@
                             <%-- ${item.interval} ${item.interval > 0 ? 's' : 'Vídeo'} --%>
                             ${label} <span class="caret"></span>
                         </button>
-                        <c:if test="${item.interval != 0}">
+                        <c:if test="${item.interval > 0}">
 	                        <ul class="dropdown-menu">
 	                            <!-- <li><a href="javascript:void(0)">1 s</a></li> -->
 	                            <li><a href="javascript:void(0)">2 s</a></li>
@@ -67,10 +67,21 @@
 
                 <h4>${item.title}</h4>
 
-                <img src="placeholder.png" alt="${item.title}" 
-                	id="img-${item.id}" data-interval="${item.interval}" 
-                	data-url="${item.url}">
-
+				<c:if test="${item.interval > 0}">
+	                <img src="placeholder.png" alt="${item.title}" 
+    	            	id="img-${item.id}" data-interval="${item.interval}" 
+        	        	data-url="${item.url}">
+				</c:if>
+				<c:if test="${item.interval == 0}">
+	                <img src="${item.url}" alt="${item.title}" 
+    	            	id="img-${item.id}" data-interval="${item.interval}" 
+        	        	data-url="${item.url}">
+				</c:if>
+				<c:if test="${item.interval < 0}">
+					<video src="${item.url}" width="100%" 
+						poster="placeholder.png"></video>
+				</c:if>
+				
                 <ul class="list-unstyled collapse">
                     <%--http://stackoverflow.com/a/58060 --%>
                     <% pageContext.setAttribute("nl", "\n"); %>
