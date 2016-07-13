@@ -1,6 +1,5 @@
 .settings/
 .project
 .classpath
-/src/main/resources/forward.properties
 /target/
 /tmp/
