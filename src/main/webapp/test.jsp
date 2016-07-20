@@ -8,50 +8,6 @@
 <title>Test</title>
 </head>
 <body>
-<%
-String first_name = "http://localhost:8080/";
-if (request.getParameter("first_name") != null)
-	first_name = request.getParameter("first_name");
-%>
 <h1>Test</h1>
-<form action="test.jsp" method="POST">
-<input name="first_name" value="<%=first_name%>">
-<input type="submit">
-</form>
-<p><img src="<%=first_name%>" alt="..."></p>
-<p><video src="<%=first_name%>"></video></p>
-<!--
-<h1>Proxy PHP</h1>
-<img src="http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0"
-	title="http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0">
-
-<h1>Proxy Java Mais Proxy PHP</h1>
-<img src="http://cameraipcapitalpartners.appspot.com/forward?url=http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0"
-	title="http://cameraipcapitalpartners.appspot.com/forward?url=http://iprj2.invprof.com.br/cameras-test/forward.php?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0">
-
-<h1>Proxy Java Com URL</h1>
-<img src="http://cameraipcapitalpartners.appspot.com/forward?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0"
-	title="http://cameraipcapitalpartners.appspot.com/forward?url=http://cam11.invprof.com.br/image.jpg?cache=0&rnd=0">
-
-<h1>Proxy Java Com ID</h1>
-<img src="http://cameraipcapitalpartners.appspot.com/forward?cam=cam11"
-	title="http://cameraipcapitalpartners.appspot.com/forward?cam=cam11">
-
-<h1>Acesso direto</h1>
-<img src="http://cam11.invprof.com.br/image.jpg"
-	title="http://cam11.invprof.com.br/image.jpg">
-
-<h1>Casa Proxy Java Com URL</h1>
-<img src="http://cameraipcapitalpartners.appspot.com/forward?url=http://189.122.162.212:8080/photo.jpg"
-	title="http://cameraipcapitalpartners.appspot.com/forward?url=http://189.122.162.212:8080/photo.jpg">
-
-<h1>Casa Proxy Java Com ID</h1>
-<img src="http://cameraipcapitalpartners.appspot.com/forward?cam=casa"
-	title="http://cameraipcapitalpartners.appspot.com/forward?cam=casa">
-
-<h1>Casa direto</h1>
-<img src="http://189.122.162.212:8080/photo.jpg"
-	title="http://189.122.162.212:8080/photo.jpg">
--->
 </body>
 </html>
