@@ -41,6 +41,11 @@
 			<artifactId>objectify</artifactId>
 			<version>5.1.10</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.apis</groupId>
+			<artifactId>google-api-services-people</artifactId>
+			<version>v1-rev4-1.22.0</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
