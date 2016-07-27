@@ -69,7 +69,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="name" class="col-md-2 control-label">Name</label>
+			<label for="name" class="col-md-2 control-label">Nome</label>
 			<div class="col-md-10">
 				<input type="text" class="form-control" id="name" name="name"
 					placeholder="Nome" value="${item.name}">
