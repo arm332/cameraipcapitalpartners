@@ -33,6 +33,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li> <!--  class="active" -->
+					<li><a href="/camera">Câmeras</a></li>
 					<li><a href="/document">Documentos</a></li>
 					<!-- <li><a href="/viewers">Usuários</a></li> -->
 					

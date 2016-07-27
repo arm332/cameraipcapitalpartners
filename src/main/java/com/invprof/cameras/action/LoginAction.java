@@ -44,7 +44,7 @@ public class LoginAction extends ActionAdapter {
 				log.info("Session login: " + session.getId() 
 					+ "; e-mail: " + session.getAttribute("email")
 					+ "; status: " + session.getAttribute("status"));
-				return "redirect:/";
+				return "redirect:/camera";
 			}
 			
 			view += "?error";

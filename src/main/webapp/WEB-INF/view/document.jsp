@@ -16,11 +16,17 @@
 	</div>
 	<!-- /.row -->
 	
-	<div class="list-group">
-		<c:forEach var="item" items="${list}">
-			<a href="/document?load&id=${item.id}" 
-				class="list-group-item">${item.name}</a>
-		</c:forEach>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="list-group">
+				<c:forEach var="item" items="${list}">
+					<a href="/document?load&id=${item.id}" class="list-group-item">
+						<span class="glyphicon glyphicon-file" aria-hidden="true"></span> 
+						${item.name}
+					</a>
+				</c:forEach>
+			</div>
+		</div>
 	</div>
 </c:if>
 
