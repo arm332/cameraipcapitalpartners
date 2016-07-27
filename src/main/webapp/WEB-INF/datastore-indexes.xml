@@ -6,7 +6,10 @@
 	<datastore-index kind="Product" ancestor="true" source="manual">
 		<property name="position" direction="asc"/>
 	</datastore-index>
-	<datastore-index kind="Camera" ancestor="true" source="manual">
+		<datastore-index kind="Camera" ancestor="true" source="manual">
+		<property name="position" direction="asc"/>
+	</datastore-index>
+	<datastore-index kind="Document" ancestor="true" source="manual">
 		<property name="position" direction="asc"/>
 	</datastore-index> -->
 </datastore-indexes>

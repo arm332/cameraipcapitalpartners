@@ -33,6 +33,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="/">Home</a></li> <!--  class="active" -->
+					<li><a href="/document">Documentos</a></li>
 					<!-- <li><a href="/viewers">Usuários</a></li> -->
 					
 					<c:if test="${sessionScope.status == 1}">
@@ -40,6 +41,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="/admin/camera">Câmeras</a></li>
+								<li><a href="/admin/document">Documentos</a></li>
 								<!-- <li><a href="/admin/product">Produtos</a></li> -->
 								<li><a href="/admin/profile">Usuários</a></li>
 			                                </ul>
