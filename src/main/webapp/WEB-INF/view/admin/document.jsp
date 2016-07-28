@@ -76,17 +76,16 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label for="file" class="col-md-2 control-label">Arquivo</label>
+			<div class="col-md-10">
+				<input type="file" id="file" name="file">
+			</div>
+		</div>
+		<div class="form-group">
 			<label for="position" class="col-md-2 control-label">Posição</label>
 			<div class="col-md-1">
 				<input type="text" class="form-control" id="position"
 					name="position" placeholder="Posição" value="${item.position}">
-			</div>
-		</div>
-		<div class="form-group">
-			<label for="name" class="col-md-2 control-label">Arquivo</label>
-			<div class="col-md-10">
-				<input type="file" class="form-control" id="file" name="file"
-					placeholder="Arquivo" value="">
 			</div>
 		</div>
 		<div class="form-group">

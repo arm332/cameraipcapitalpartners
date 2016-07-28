@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Home <small>Lista de opções</small>
+                Começo <small>Lista de opções</small>
             </h1>
         </div>
     </div>
@@ -24,6 +24,9 @@
        			<a href="/camera" class="list-group-item">
 		       		<span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Câmeras
 		        </a>
+       			<a href="/document" class="list-group-item">
+		       		<span class="glyphicon glyphicon-file" aria-hidden="true"></span> Documentos
+		        </a>
 			</div>
        	</div>
 	</div>
@@ -34,7 +37,6 @@
             <h3>
                 Documentos <small>Lista de documentos</small>
             </h3>
-            <hr>
         </div>
     </div>
 	<!-- /.row -->

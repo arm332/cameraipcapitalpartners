@@ -3,11 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <jsp:include page="header.jsp" />
+
 <!-- Page Content -->
 <div class="container">
-
-<c:if test="${list != null}">
-
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -17,8 +15,9 @@
         </div>
     </div>
     <!-- /.row -->
-    
 </div>
+
+<c:if test="${list != null}">
 
 <div class="container-fluid">
     <div class="row">
@@ -136,9 +135,9 @@
         </div>
     </div>
     <!-- /.modal -->
+</div>
+<!-- /.container -->
 
 </c:if>
 
-</div>
-<!-- /.container -->
 <jsp:include page="footer.jsp" />

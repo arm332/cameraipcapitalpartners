@@ -7,7 +7,7 @@
 	        <div class="row">
             	<hr />
                 <div class="col-md-6">
-                    <p>Copyright &copy; 2016, Investidor Profissional.</p>
+                    <p>Copyright &copy; 2016, IP Capital Partners. Todos os direitos reservados.</p>
                 </div>
                 <div class="col-md-6">
                 	<p class="text-right" id="viewers"></p>

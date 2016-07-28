@@ -91,13 +91,13 @@
 					placeholder="URL" value="${item.url}">
 			</div>
 		</div>
-		<div class="form-group">
+		<!-- <div class="form-group">
 			<label for="interval" class="col-md-2 control-label">Intervalo</label>
 			<div class="col-md-1">
 				<input type="text" class="form-control" id="interval"
 					name="interval" placeholder="Intervalo" value="${item.interval}">
 			</div>
-		</div>
+		</div> -->
 		<div class="form-group">
 			<label for="position" class="col-md-2 control-label">Posição</label>
 			<div class="col-md-1">

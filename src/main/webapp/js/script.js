@@ -210,7 +210,7 @@ $(document).ready(function() {
         })
         .done(function(data) {
         	//console.log(data)
-        	$html = '<b>Usuários ativos</b>';
+        	$html = '<b>Usuários Ativos</b>';
         	$.each(data, function(key, val) {
         		$html += '<br/>' + key;
         	});

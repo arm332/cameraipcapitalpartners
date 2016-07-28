@@ -32,11 +32,11 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="/">Home</a></li> <!--  class="active" -->
+					<!-- <li><a href="/">Começo</a></li> --> <!-- class="active" -->
 					<li><a href="/camera">Câmeras</a></li>
 					<li><a href="/document">Documentos</a></li>
-					<!-- <li><a href="/viewers">Usuários</a></li> -->
-					
+					<!-- <li><a href="/viewers">Usuários Ativos</a></li> -->
+					<%--
 					<c:if test="${sessionScope.status == 1}">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
@@ -48,10 +48,18 @@
 			                                </ul>
 						</li>
 					</c:if>
-					
+					--%>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.email} <span class="caret"></span></a>
 						<ul class="dropdown-menu">
+							<c:if test="${sessionScope.status == 1}">
+								<li class="dropdown-header">ADMINISTRAÇÃO</li>
+								<li><a href="/admin/camera">Câmeras</a></li>
+								<li><a href="/admin/document">Documentos</a></li>
+								<!-- <li><a href="/admin/product">Produtos</a></li> -->
+								<li><a href="/admin/profile">Usuários</a></li>
+								<li role="separator" class="divider"></li>
+							</c:if>
 							<li><a href="#" data-href="/logout"
 								data-message="Sair da Conta do Google?"
 								data-toggle="modal" data-target="#confirm-dialog">Sair</a></li>
