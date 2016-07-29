@@ -223,5 +223,9 @@ $(document).ready(function() {
     	});
     };
     
-    $viewers();
+    // Avoid request when not logged in as we won't receive any data anyway
+    
+    if ($path[1] != 'login' && $path[1] != 'logout') {
+        $viewers();    	
+    }
 });
