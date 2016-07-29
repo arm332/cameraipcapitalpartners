@@ -7,7 +7,7 @@
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Câmeras Investidor Profissional</title>
+	<title>Câmeras IP Capital Partners</title>
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
 	<link rel="stylesheet" href="/css/style.css" type="text/css" />
 	<script src="/js/jquery.min.js" type="text/javascript"></script>
