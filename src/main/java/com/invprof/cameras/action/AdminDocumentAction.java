@@ -2,6 +2,7 @@ package com.invprof.cameras.action;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,16 @@ import com.invprof.cameras.util.Util;
 
 public class AdminDocumentAction extends ActionAdapter {
 	private DocumentService service = new DocumentServiceImpl();
-
+	
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+		if (request.getParameter("download") != null) {
+			return download(request, response);
+		}
+		
+		return super.execute(request, response);
+	}
+	
 	@Override
 	public String list(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		List<Document> list = service.list();
@@ -92,4 +102,27 @@ public class AdminDocumentAction extends ActionAdapter {
 		return "redirect:/admin/document";
 	}
 	
+	private String download(HttpServletRequest request, HttpServletResponse response) {
+		String aux = request.getParameter("id");
+		Long id = Util.tryParseLong(aux);
+		Document item = service.load(id);
+		String name = item.getName();
+		String description = item.getDescription();
+
+		response.setContentType("application/octet-stream");
+		response.setContentLength((int) description.length());
+        response.setHeader("Content-disposition","attachment; filename=\"" + name + ".html\"");
+        
+		try {
+			
+			OutputStream out = response.getOutputStream();
+			out.write(description.getBytes());
+			out.flush();
+			
+		} catch (IOException e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+	}
 }

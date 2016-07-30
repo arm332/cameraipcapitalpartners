@@ -21,6 +21,7 @@
 			<tr>
 				<th>Posição</th>
 				<th width="100%">Nome</th>
+				<!-- <th class="text-center">Download</th> -->
 				<th class="text-center">Editar</th>
 				<th class="text-center">Excluir</th>
 			</tr>
@@ -30,6 +31,8 @@
 				<tr>
 					<td class="text-center">${item.position}</td>
 					<td>${item.name}</td>
+					<!-- <td><a href="/admin/document?download&id=${item.id}"
+						class="btn btn-default">Download</a></td> -->
 					<td><a href="/admin/document?load&id=${item.id}"
 						class="btn btn-primary">Editar</a></td>
 					<td><a href="/admin/document?delete&id=${item.id}"
