@@ -39,7 +39,7 @@
 						class="btn btn-danger" onclick="return confirm('Are you sure?')">Excluir</a></td>
 					<!-- <td><a href="#" class="btn btn-danger"
 						data-message="Excluir o item selecionado?"
-						data-href="/admin/profile?delete&email=${item.id}"
+						data-href="/admin/document?delete&email=${item.id}"
 						data-toggle="modal" data-target="#confirm-dialog">Excluir</a></td> -->
 				</tr>
 			</c:forEach>
