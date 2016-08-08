@@ -37,7 +37,7 @@ public class LoginAction extends ActionAdapter {
 		String scheme = request.getScheme() + "://";
 	    String serverName = request.getServerName();
 	    String serverPort = (request.getServerPort() == 80) ? "" : ":" + request.getServerPort();
-	    String redirectUri = scheme + serverName + serverPort + "/login2";
+	    String redirectUri = scheme + serverName + serverPort + "/login";
 	    
 		String email = null;
 		String name = null;

@@ -39,6 +39,16 @@
     <servlet-name>FrontController</servlet-name>
     <url-pattern>/FrontController/*</url-pattern>
   </servlet-mapping>
+  <!-- <servlet>
+    <description>WellKnown description</description>
+    <display-name>WellKnown</display-name>
+    <servlet-name>WellKnown</servlet-name>
+    <servlet-class>com.invprof.cameras.controller.WellKnownController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WellKnown</servlet-name>
+    <url-pattern>/.well-known/*</url-pattern>
+  </servlet-mapping> -->
   <session-config>
     <session-timeout>600</session-timeout>
   </session-config>

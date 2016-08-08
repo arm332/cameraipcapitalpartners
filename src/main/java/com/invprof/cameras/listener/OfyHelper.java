@@ -4,6 +4,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.googlecode.objectify.ObjectifyService;
+import com.invprof.cameras.model.Acme;
 import com.invprof.cameras.model.Camera;
 import com.invprof.cameras.model.Document;
 import com.invprof.cameras.model.Profile;
@@ -23,6 +24,7 @@ public class OfyHelper implements ServletContextListener {
 		//ObjectifyService.register(Product.class);
 		ObjectifyService.register(Camera.class);
 		ObjectifyService.register(Document.class);
+		ObjectifyService.register(Acme.class);
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {

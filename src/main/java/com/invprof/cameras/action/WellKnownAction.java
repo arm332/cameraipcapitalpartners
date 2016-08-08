@@ -1,39 +1,38 @@
 package com.invprof.cameras.action;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.invprof.cameras.model.Acme;
+import com.invprof.cameras.service.AcmeService;
+import com.invprof.cameras.service.AcmeServiceImpl;
+
 public class WellKnownAction extends ActionAdapter {
-	private static final Map<String, String> challenges = new HashMap<>();
+	private static final String ACME_CHALLENGE = "/.well-known/acme-challenge/";
 	
-	static {
-        challenges.put("yegbiwTIdv2mDa_3uuzpFmHMUL0t06K0WIQg28kYkWk", 
-        		"yegbiwTIdv2mDa_3uuzpFmHMUL0t06K0WIQg28kYkWk.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
-        challenges.put("oGEWKdIjJf041dLgJk9VV2ZLWAPoQmb_xDym0rff3iQ", 
-        		"oGEWKdIjJf041dLgJk9VV2ZLWAPoQmb_xDym0rff3iQ.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
-        challenges.put("3co9vhNswMOm_kX4WzBjZZOUddqVIRgQQuWWQQ_S8Iw",
-        		"3co9vhNswMOm_kX4WzBjZZOUddqVIRgQQuWWQQ_S8Iw.sMQb7Dhy4bTr_3A6gqYk10ZsAF42hM7uLHm9_bi-jXQ");
-    }
-		
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
         try {
-        	
     		String path = request.getPathInfo();
     		
-    		if (path.startsWith("/.well-known/acme-challenge/")) {
+    		if (path.startsWith(ACME_CHALLENGE)) {
+    			String token = path.substring(ACME_CHALLENGE.length());
     			
-    			String id = path.substring("/.well-known/acme-challenge/".length());
-    			
-    			if (challenges.containsKey(id)) {
-    	            response.setContentType("text/plain");
-    	            response.getOutputStream().print(challenges.get(id));
-    				return null;
+    			if (token != null) {
+        			AcmeService service = new AcmeServiceImpl();
+        			List<Acme> list = service.list();
+        			
+        			for (Acme acme : list) {
+        				if (token.equals(acme.getToken())) {
+            	            response.setContentType("text/plain");
+            	            response.getOutputStream().print(acme.getAuth());
+            				return null;
+        				}
+        			}
     			}
     		}
     		
