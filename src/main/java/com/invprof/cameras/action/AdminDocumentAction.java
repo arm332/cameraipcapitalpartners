@@ -88,7 +88,7 @@ public class AdminDocumentAction extends ActionAdapter {
 		aux = map.get("position");
 		Integer position = Util.tryParseInt(aux);
 		String file = map.get("file");
-		if (file != null) description = file;
+		if (file != null && !file.isEmpty()) description = file;
 		Document item = new Document(id, name, description, position);
 		service.save(item);
 		return "redirect:/admin/document";
