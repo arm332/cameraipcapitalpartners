@@ -41,7 +41,7 @@ $(document).ready(function() {
             $(img).attr('src', $src);
         }
 
-        //console.log('id: ' + $id + ', src: ' + $src + ', cache: ' + $cache);
+        console.log('Load, id: ' + $id + ', src: ' + $src + ', cache: ' + $cache);
     }
 
     // Start auto camera loading
@@ -67,7 +67,6 @@ $(document).ready(function() {
         $button.html($(this).text() + ' <span class="caret"></span>');
         $img = $(this).parents('.cam').find('img');
         $img.data('interval', $(this).text());
-        //console.log($img.data('interval'));
         $trigger($img);
     });
     
