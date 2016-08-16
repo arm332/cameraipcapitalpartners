@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItemIterator;
 import org.apache.commons.fileupload.FileItemStream;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.fileupload.util.Streams;
 import org.apache.commons.io.IOUtils;
@@ -54,10 +53,11 @@ public class AdminDocumentAction extends ActionAdapter {
 	@Override
 	public String save(HttpServletRequest request, HttpServletResponse response) throws ServletException  {
 		Map<String, String> map = new HashMap<>();
-		ServletFileUpload upload = new ServletFileUpload();
 		
 		try {
+			ServletFileUpload upload = new ServletFileUpload();
 			FileItemIterator iter = upload.getItemIterator(request);
+			String charset = "UTF-8";
 			
 			while (iter.hasNext()) {
 				FileItemStream item = iter.next();
@@ -67,18 +67,16 @@ public class AdminDocumentAction extends ActionAdapter {
 				String value = null;
 				
 				if (item.isFormField()) {
-					value = Streams.asString(stream, "UTF-8");
+					value = Streams.asString(stream, charset);
 				}
 				else {
-					value = IOUtils.toString(stream);
+					value = IOUtils.toString(stream, charset);
 				}
 				
 				map.put(name, value);
 			}
-			
-		} catch (FileUploadException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (Exception e) {
+			throw new ServletException(e.getMessage());
 		}
 		
 		String aux = map.get("id");
