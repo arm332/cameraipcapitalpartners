@@ -3,6 +3,10 @@ package com.invprof.cameras.action;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +61,6 @@ public class AdminDocumentAction extends ActionAdapter {
 		try {
 			ServletFileUpload upload = new ServletFileUpload();
 			FileItemIterator iter = upload.getItemIterator(request);
-			String charset = "UTF-8";
 			
 			while (iter.hasNext()) {
 				FileItemStream item = iter.next();
@@ -67,10 +70,12 @@ public class AdminDocumentAction extends ActionAdapter {
 				String value = null;
 				
 				if (item.isFormField()) {
-					value = Streams.asString(stream, charset);
+					value = Streams.asString(stream);
 				}
 				else {
-					value = IOUtils.toString(stream, charset);
+					//value = IOUtils.toString(stream);
+					byte[] bytes = IOUtils.toByteArray(stream);
+					value = utf8encoded(bytes);
 				}
 				
 				map.put(name, value);
@@ -119,6 +124,26 @@ public class AdminDocumentAction extends ActionAdapter {
 			
 		} catch (IOException e) {
 			// TODO: handle exception
+		}
+		
+		return null;
+	}
+	
+	private String utf8encoded(byte[] bytes) {
+		String[] charsetNames = {"ISO-8859-1", "windows-1253", "UTF-8"};
+		
+		for (String charsetName : charsetNames) {
+			try {
+				Charset fromCharset = Charset.forName(charsetName);
+				CharsetDecoder decoder = fromCharset.newDecoder();
+				CharBuffer decoded = decoder.decode(ByteBuffer.wrap(bytes));
+				Charset toCharset = Charset.forName("UTF-8");
+	            ByteBuffer encoded = toCharset.encode(decoded);
+	            byte[] encodedBytes = encoded.array();
+	            return new String(encodedBytes);
+	        } catch (Exception e) {
+	        	// do nothing
+	        }
 		}
 		
 		return null;
