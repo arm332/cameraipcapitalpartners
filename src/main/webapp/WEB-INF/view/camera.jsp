@@ -80,8 +80,13 @@
         	        	data-url="${item.url}">
 				</c:if>
 				<c:if test="${item.interval < 0}">
-					<video src="${item.url}" width="100%" 
-						poster="placeholder.png"></video>
+					<!-- <video src="${item.url}" type="video/ogg; codecs=theora" 
+						autoplay="autoplay" controls="controls"
+						poster="placeholder.png" width="100%"
+						onclick="this.play();"></video> -->
+					<video id="cam${item.id}" autoplay="autoplay" controls="controls" poster="placeholder.png" width="100%">
+						<source src="${item.url}" type="video/ogg; codecs=theora">
+					</video>
 				</c:if>
 				
                 <ul class="list-unstyled collapse">

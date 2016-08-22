@@ -61,6 +61,7 @@ public class CameraAction extends ActionAdapter {
 		found.addAll(list);
 		request.setAttribute("list", found);
 		request.setAttribute("refresh", true);
+		//return "/camera.jsp?refresh";
 		return "/camera.jsp";
 	}
 }

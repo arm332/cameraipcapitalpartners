@@ -37,9 +37,14 @@ public class AdminCameraAction extends ActionAdapter {
 		String title = request.getParameter("title");
 		String description = request.getParameter("description");
 		String url = request.getParameter("url");
+		
 		aux = request.getParameter("interval");
 		Integer interval = Util.tryParseInt(aux);
 		if (interval == null) interval = 0;
+		aux = url.substring(url.length()-2);
+		Integer tmp = Util.tryParseInt(aux);
+		if (tmp >= 40) interval = -1;
+		
 		aux = request.getParameter("position");
 		Integer position = Util.tryParseInt(aux);
 		Camera item = new Camera(id, title, description, url, interval, position);

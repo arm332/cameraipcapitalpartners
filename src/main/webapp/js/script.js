@@ -41,23 +41,28 @@ $(document).ready(function() {
             $(img).attr('src', $src);
         }
 
-        console.log('Load, id: ' + $id + ', src: ' + $src + ', cache: ' + $cache);
+        //console.log('Load, id: ' + $id + ', src: ' + $src + ', cache: ' + $cache);
     }
 
     // Start auto camera loading
 
-    $('.cam img').one('load', function() {
-		$trigger(this);
+    //$('.cam img').one('load', function() {
+    //	$trigger(this);
+    //});
+
+    // On camera partial loading (image corrupt or truncated) 
+    
+    $('.cam img').on('load', function() {
+    	if (this.naturalWidth === 0) {
+    		console.log('Image corrupt or truncated: ' + this.src);
+    	}
     });
 
     // On camera loading error
 
-    $('.cam img').error(function() {
-        $id = $(this).attr('id');
-        clearTimeout($timer[$id]);
-        $src = $(this).attr('src');
-        console.log('Error, id: ' + $id + ', src: ' + $src);
-        $(this).attr('src', 'placeholder.png');
+    $('.cam img').on('error', function() {
+        console.log('Image error: ' + this.src);
+        //$(this).attr('src', 'placeholder.png');
     });
 
     // Change camera loading interval
