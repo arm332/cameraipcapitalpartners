@@ -41,9 +41,6 @@ public class AdminCameraAction extends ActionAdapter {
 		aux = request.getParameter("interval");
 		Integer interval = Util.tryParseInt(aux);
 		if (interval == null) interval = 0;
-		aux = url.substring(url.length()-2);
-		Integer tmp = Util.tryParseInt(aux);
-		if (tmp >= 40) interval = -1;
 		
 		aux = request.getParameter("position");
 		Integer position = Util.tryParseInt(aux);
