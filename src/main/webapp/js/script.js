@@ -207,8 +207,6 @@ $(document).ready(function() {
     
     $viewers = function() {
     	$.ajax({
-    		async: true,
-        	cache: false,
         	dataType: 'json',
         	url: '/viewers' 
         })
@@ -220,7 +218,10 @@ $(document).ready(function() {
         	});
         	//$html += '<br/>' + new Date();
     		$('#viewers').html($html);
-        	setTimeout($viewers, 1000 * 60 * 1); // 1 min
+    		// Cameras has it's own refresh every 1 min
+    		if ($path[1] != 'camera') {
+    			setTimeout($viewers, 1000 * 60 * 1); // 1 min
+    		}
     	})
     	.fail(function() {
     		console.log('ERROR: at viewers');
