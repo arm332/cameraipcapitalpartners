@@ -18,7 +18,7 @@ try {
     datastore.put(txn, project);
     Key projectKey = project.getKey();
     
-    final String[] profiles = {"camera@invprof.com.br"};
+    final String[] profiles = {"camera@ip-cp.com"};
     
     for (int i = 0; i < profiles.length; i++) {
 	    Entity entity = new Entity("Profile", profiles[i], projectKey);
