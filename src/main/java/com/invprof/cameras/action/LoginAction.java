@@ -66,7 +66,8 @@ public class LoginAction extends ActionAdapter {
 			//e.printStackTrace();
 			String authorizationUrl = new GoogleAuthorizationCodeRequestUrl(clientId,
 					redirectUri, Arrays.asList(scopes))
-					.setApprovalPrompt("force")
+					.set("prompt", "select_account")
+					//.setApprovalPrompt("force")
 					//.setState("mystate")
 					.build();
 			request.setAttribute("loginUrl", authorizationUrl);
