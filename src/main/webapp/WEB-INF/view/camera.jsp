@@ -102,13 +102,12 @@
                                 ${token}
                                 <c:if test="${fn:length(tokens) > 1}">
                                     <c:set var="token" value="${fn:trim(tokens[1])}" />
-                                    | ${token}
+                                    <%-- https://stackoverflow.com/a/11598961 --%>
+                                    <!-- - <a href="skype:${token}?call">Call</a>
+                                    - <a href="skype:${token}?chat">Chat</a> -->
                                     <%-- https://stackoverflow.com/a/8852679 --%>
-                                    | <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${token}@email.com
-                                    " target="_blank">GMail</a>
-                                    <%--https://stackoverflow.com/a/11598961 --%>
-                                    | <a href="skype:${token}?call">Call</a>
-                                    | <a href="skype:${token}?chat">Chat</a>
+                                    - <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${token}@email.com
+                                    ">GMail</a>
                                 </c:if>
                             </li>
                         </c:if>
