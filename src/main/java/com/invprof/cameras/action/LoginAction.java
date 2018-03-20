@@ -1,6 +1,7 @@
 package com.invprof.cameras.action;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Properties;
 import java.util.logging.Logger;
 
@@ -18,13 +19,17 @@ import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.oauth2.Oauth2;
 import com.google.api.services.oauth2.model.Userinfoplus;
+import com.invprof.cameras.model.Log;
 import com.invprof.cameras.model.Profile;
+import com.invprof.cameras.service.LogService;
+import com.invprof.cameras.service.LogServiceImpl;
 import com.invprof.cameras.service.ProfileService;
 import com.invprof.cameras.service.ProfileServiceImpl;
 import com.invprof.cameras.util.Util;
 
 public class LoginAction extends ActionAdapter {
 	private static final Logger log = Logger.getLogger(LoginAction.class.getName());
+	private LogService logService = new LogServiceImpl();
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -98,9 +103,11 @@ public class LoginAction extends ActionAdapter {
 		session.setAttribute("name", name);
 		
 		log.info("Session login: " + session.getId() 
-		+ "; e-mail: " + session.getAttribute("email")
-		+ "; status: " + session.getAttribute("status"));
-
+			+ "; e-mail: " + session.getAttribute("email")
+			+ "; status: " + session.getAttribute("status"));
+		
+		logService.save(new Log(null, new Date(), email, "login"));
+		
 		return "redirect:/camera";
 	}
 }

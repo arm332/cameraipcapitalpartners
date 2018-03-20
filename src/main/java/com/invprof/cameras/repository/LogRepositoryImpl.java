@@ -13,7 +13,7 @@ public class LogRepositoryImpl implements LogRepository {
 	@Override
 	public List<Log> list() {
 		Key<Project> parent = Key.create(Project.class, Constant.PROJECT_NAME);
-		return ObjectifyService.ofy().load().type(Log.class).ancestor(parent).list();
+		return ObjectifyService.ofy().load().type(Log.class).ancestor(parent).order("-date").list();
 	}
 
 	@Override

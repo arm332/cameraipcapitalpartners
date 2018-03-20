@@ -8,7 +8,7 @@ import java.util.Date;
 import java.util.Properties;
 
 public final class Util {
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 	private Util() {} // prevents instantiation
 

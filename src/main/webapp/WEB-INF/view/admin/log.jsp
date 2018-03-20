@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="../header.jsp" />
 <!-- Page Content -->
 <div class="container">
@@ -21,19 +22,23 @@
 			<tr>
 				<th>Data</th>
 				<th width="100%">E-Mail</th>
-				<!-- <th class="text-center">Editar</th>
+				<!-- <th>Notas</th>
+				<th class="text-center">Editar</th>
 				<th class="text-center">Excluir</th> -->
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="item" items="${list}">
 				<tr>
-					<td>${item.date}</td>
+					<td class="text-nowrap"><fmt:formatDate type="both" 
+						pattern="dd/MM/yyyy hh:mm:ss" value="${item.date}"/></td>
+					<td>${item.email}</td>
+					<!-- <td>${item.notes}</td>
 					<td><a href="/admin/log?load&id=${item.id}"
 						class="btn btn-primary">Editar</a></td>
-					<!-- <td><a href="/admin/log?delete&id=${item.id}"
-						class="btn btn-danger" onclick="return confirm('Are you sure?')">Excluir</a></td>
-					<td><a href="#" class="btn btn-danger"
+					<td><a href="/admin/log?delete&id=${item.id}"
+						class="btn btn-danger" onclick="return confirm('Are you sure?')">Excluir</a></td> -->
+					<!-- <td><a href="#" class="btn btn-danger"
 						data-message="Excluir o item selecionado?"
 						data-href="/admin/log?delete&email=${item.id}"
 						data-toggle="modal" data-target="#confirm-dialog">Excluir</a></td> -->
@@ -64,7 +69,8 @@
 			<label for="date" class="col-md-2 control-label">Data</label>
 			<div class="col-md-10">
 				<input type="text" class="form-control" id="date" name="date"
-					placeholder="Data" value="${item.date}">
+					placeholder="Data" value="<fmt:formatDate type="both" 
+						pattern="dd/MM/yyyy hh:mm:ss" value="${item.date}"/>">
 			</div>
 		</div>
 		<div class="form-group">
