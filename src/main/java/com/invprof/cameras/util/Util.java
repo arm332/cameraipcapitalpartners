@@ -2,13 +2,18 @@ package com.invprof.cameras.util;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 public final class Util {
+	private static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
 	private Util() {} // prevents instantiation
 
     public static Properties getProperties() {
-    	return getProperties("config.properties");
+    		return getProperties("config.properties");
     }
     
     public static Properties getProperties(String filename) {
@@ -47,6 +52,14 @@ public final class Util {
 		    return Long.parseLong(s);
 		} catch (Exception e) {
 		    return null;
+		}
+	}
+	
+	public static Date tryParseDate(String s) {
+		try {
+			return dateFormat.parse(s);
+		} catch (ParseException e) {
+			return null;
 		}
 	}
 }
