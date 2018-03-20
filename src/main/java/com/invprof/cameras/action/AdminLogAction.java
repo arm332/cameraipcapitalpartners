@@ -7,10 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.invprof.cameras.model.Acme;
 import com.invprof.cameras.model.Log;
-import com.invprof.cameras.service.AcmeService;
-import com.invprof.cameras.service.AcmeServiceImpl;
 import com.invprof.cameras.service.LogService;
 import com.invprof.cameras.service.LogServiceImpl;
 import com.invprof.cameras.util.Util;

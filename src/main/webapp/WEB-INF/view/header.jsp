@@ -63,7 +63,7 @@
 								<li><a href="/admin/document">Documentos</a></li>
 								<!-- <li><a href="/admin/product">Produtos</a></li> -->
 								<li><a href="/admin/profile">Usuários</a></li>
-								<li><a href="/admin/log">Log</a></li>
+								<!-- <li><a href="/admin/log">Log</a></li> -->
 								<li role="separator" class="divider"></li>
 							</c:if>
 							<li><a href="#" data-href="/logout"

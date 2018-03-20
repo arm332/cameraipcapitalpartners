@@ -6,7 +6,6 @@
   <!--
     Allows App Engine to send multiple requests to one instance in parallel:
   -->
-  <runtime>java8</runtime>
   <threadsafe>true</threadsafe>
 
   <!-- Configure java.util.logging -->
@@ -28,5 +27,12 @@
     stale session data. For details, see
     http://code.google.com/appengine/docs/java/config/appconfig.html#Enabling_Sessions
   -->
+
+  <!--
+    Migrating from Java 7 to Java 8 Runtime
+    https://cloud.google.com/appengine/docs/standard/java/migrating-to-java8 
+  -->
+  <runtime>java8</runtime>
+  <url-stream-handler>urlfetch</url-stream-handler>
 
 </appengine-web-app>
