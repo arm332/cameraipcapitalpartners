@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.event.Level;
-
-import com.google.api.client.auth.oauth2.TokenResponseException;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeRequestUrl;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeTokenRequest;
 import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
@@ -32,7 +29,7 @@ import com.invprof.cameras.util.Util;
 
 public class LoginAction extends ActionAdapter {
 	private static final Logger logger = Logger.getLogger(LoginAction.class.getName());
-	//private LogService logService = new LogServiceImpl();
+	private LogService logService = new LogServiceImpl();
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -82,22 +79,21 @@ public class LoginAction extends ActionAdapter {
 			name = userInfo.getName();
 			
 			logger.info("INFO: LoginAction.execute 6");
-		} catch (TokenResponseException e) {
-			if (e.getDetails() != null) {
-		        System.err.println("Error: " + e.getDetails().getError());
-		        if (e.getDetails().getErrorDescription() != null) {
-		          System.err.println(e.getDetails().getErrorDescription());
-		        }
-		        if (e.getDetails().getErrorUri() != null) {
-		          System.err.println(e.getDetails().getErrorUri());
-		        }
-		      } else {
-		        System.err.println(e.getMessage());
-		      }			
+//		} catch (TokenResponseException e) {
+//			if (e.getDetails() != null) {
+//		        System.err.println("Error: " + e.getDetails().getError());
+//		        if (e.getDetails().getErrorDescription() != null) {
+//		          System.err.println(e.getDetails().getErrorDescription());
+//		        }
+//		        if (e.getDetails().getErrorUri() != null) {
+//		          System.err.println(e.getDetails().getErrorUri());
+//		        }
+//		      } else {
+//		        System.err.println(e.getMessage());
+//		      }			
+//			return "/login.jsp";
 		} catch (Exception e) {
-			logger.info("INFO: LoginAction.execute 7");
-
-			e.printStackTrace();
+			//e.printStackTrace();
 			String authorizationUrl = new GoogleAuthorizationCodeRequestUrl(clientId,
 					redirectUri, Arrays.asList(scopes))
 					.set("prompt", "select_account")
@@ -135,7 +131,7 @@ public class LoginAction extends ActionAdapter {
 			+ "; e-mail: " + session.getAttribute("email")
 			+ "; status: " + session.getAttribute("status"));
 		
-//		logService.save(new Log(null, new Date(), email, "login"));
+		logService.save(new Log(null, new Date(), email, "login"));
 		
 		return "redirect:/camera";
 	}
