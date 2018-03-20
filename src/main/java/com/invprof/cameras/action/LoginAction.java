@@ -85,6 +85,7 @@ public class LoginAction extends ActionAdapter {
 			
 			// User not found on database
 			if (profile == null) {
+				//profile = new Profile("mail@host.net", "Administrator", 1); // TESTING ONLY!
 				return "/login.jsp?error";
 			}
 		}
