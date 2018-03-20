@@ -2,6 +2,8 @@
 
 Setup initial programming environment and deploy a hello world application.
 
+## Setup
+
 ### Install Java 7 (Google App Engine dependency)
 
 ### Install Eclipse IDE for Java EE Developers (Mars)
@@ -182,4 +184,35 @@ Setup initial programming environment and deploy a hello world application.
 - Window > Show View > Servers
 - Right click on the server > Google App Engine > Deploy to Remote Server
 - http://myappid.appspot.com/
+
+## Update to Google Cloud Tools
+
+### Install Eclipse IDE for Java EE Developers, version 4.6 or later
+
+	https://www.eclipse.org/downloads/
+	
+### Install Google Cloud Tools for Eclipse plugin
+
+	Open Eclipse, select Help > Eclipse Marketplace... and search for Google Cloud.
+
+### Install Google Cloud SDk
+
+	curl https://sdk.cloud.google.com | bash
+
+### Install Google AppEngine components
+
+	gcloud components install app-engine-java
+
+### Import as a Maven project
+
+### Convert if necessarie
+
+### Run as > AppEngine
+ 
+## References
+
+- https://cloud.google.com/eclipse/docs/creating-new-webapp?hl=pt-br
+- https://cloud.google.com/eclipse/docs/running-and-debugging?hl=pt-br
+- https://stackoverflow.com/q/31037279
+- https://stackoverflow.com/a/22294554
 
