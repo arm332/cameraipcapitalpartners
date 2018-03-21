@@ -1,7 +1,5 @@
 package com.invprof.cameras.action;
 
-import java.util.logging.Logger;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +13,7 @@ import com.invprof.cameras.service.ProfileService;
 import com.invprof.cameras.service.ProfileServiceImpl;
 
 public class LoginOpenIdAction extends ActionAdapter {
-	private static final Logger log = Logger.getLogger(LoginOpenIdAction.class.getName());
+//	private static final Logger log = Logger.getLogger(LoginOpenIdAction.class.getName());
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -41,9 +39,9 @@ public class LoginOpenIdAction extends ActionAdapter {
 				HttpSession session = request.getSession();
 				session.setAttribute("email", email);
 				session.setAttribute("status", status);
-				log.info("Session login: " + session.getId() 
-					+ "; e-mail: " + session.getAttribute("email")
-					+ "; status: " + session.getAttribute("status"));
+//				log.info("Session login: " + session.getId() 
+//					+ "; e-mail: " + session.getAttribute("email")
+//					+ "; status: " + session.getAttribute("status"));
 				return "redirect:/camera";
 			}
 			
