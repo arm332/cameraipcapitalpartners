@@ -71,7 +71,8 @@
 			<div class="col-md-10">
 				<input type="text" class="form-control" id="date" name="date"
 					placeholder="Data" value="<fmt:formatDate type="both" 
-						pattern="dd/MM/yyyy hh:mm:ss" value="${item.date}"/>">
+						pattern="dd/MM/yyyy HH:mm:ss" timeZone="GMT-3"
+						value="${item.date}"/>">
 			</div>
 		</div>
 		<div class="form-group">
