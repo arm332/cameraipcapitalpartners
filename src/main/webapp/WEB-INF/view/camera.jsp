@@ -89,11 +89,11 @@
 					</video>
 				</c:if>
 				
-                <ul class="list-unstyled collapse">
-                    <%--http://stackoverflow.com/a/58060 --%>
-                    <% pageContext.setAttribute("nl", "\n"); %>
-                    <c:set var="lines" value="${fn:split(item.description, nl)}" />
-                    <c:forEach var="line" items="${lines}">
+				<ul class="list-unstyled collapse">
+                    	<%--http://stackoverflow.com/a/58060 --%>
+                   	<% pageContext.setAttribute("nl", "\n"); %>
+                    	<c:set var="lines" value="${fn:split(item.description, nl)}" />
+					<c:forEach var="line" items="${lines}">
                         <c:set var="tokens" value="${fn:split(line, '|')}" />
                         <c:set var="token" value="${fn:trim(tokens[0])}" />
                         <%-- Remove empty lines --%>
@@ -106,7 +106,7 @@
                                     <!-- - <a href="skype:${token}?call">Call</a>
                                     - <a href="skype:${token}?chat">Chat</a> -->
                                     <%-- https://stackoverflow.com/a/8852679 --%>
-                                    - <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${token}@email.com
+                                    - <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${token}
                                     ">GMail</a>
                                 </c:if>
                             </li>
