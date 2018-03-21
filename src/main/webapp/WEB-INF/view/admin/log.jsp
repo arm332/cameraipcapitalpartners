@@ -31,7 +31,8 @@
 			<c:forEach var="item" items="${list}">
 				<tr>
 					<td class="text-nowrap"><fmt:formatDate type="both" 
-						pattern="dd/MM/yyyy hh:mm:ss" value="${item.date}"/></td>
+						pattern="dd/MM/yyyy HH:mm:ss" timeZone="GMT-3" 
+						value="${item.date}"/></td>
 					<td>${item.email}</td>
 					<!-- <td>${item.notes}</td>
 					<td><a href="/admin/log?load&id=${item.id}"
