@@ -91,31 +91,33 @@
 				
 				<ul class="list-unstyled collapse">
 					<%-- https://stackoverflow.com/a/58060 --%>
-					<% pageContext.setAttribute("newLine", "\n"); %>
-                    	<c:forTokens var="line" items="${item.description}" delims="${newLine}">
-                    		<c:if test="${not empty fn:trim(line)}">
-                    			<c:forTokens var="token" items="${line}" delims="|">
-                    				<c:set var="token" value="${fn:trim(token)}"/>
-                    				<c:if test="${not empty token}">
-                    					<c:choose>
-                    						<c:when test="${fn:indexOf(token, '@') != -1}">
-											<%-- https://stackoverflow.com/a/8852679 --%>
-											- <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${token}">GMail</a>
-                    						</c:when>
-                    						<c:when test="${fn:indexOf(token, ' ') == -1}">
-											<%-- https://stackoverflow.com/a/11598961 --%>
-											<!-- - <a href="skype:${token}?chat">Chat</a> -->
-											- <a href="skype:${token}?call">Skype</a>
-                    						</c:when>
-                    						<c:otherwise>
-                    							${token}
-                    						</c:otherwise>
-                    					</c:choose>
-                    				</c:if>
-                    			</c:forTokens>
-	                    		<br>
-                    		</c:if>
-                    </c:forTokens>
+					<% pageContext.setAttribute("nl", "\n"); %>
+                    	<c:forTokens var="line" items="${item.description}" delims="${nl}">
+						<c:set var="tokens" value="${fn:split(fn:trim(line), '|')}" />
+						<li class="text-nowrap">
+							<c:if test="${fn:length(tokens) > 0}">
+								<c:set var="token" value="${fn:trim(tokens[0])}" />
+								<c:if test="${not empty token}">
+									${token}
+								</c:if>
+							</c:if>
+							<c:if test="${fn:length(tokens) > 1}">
+								<c:set var="token" value="${fn:trim(tokens[1])}" />
+								<c:if test="${not empty token}">
+									<%-- https://stackoverflow.com/a/11598961 --%>
+									<!-- - <a href="skype:${token}?chat">Chat</a> -->
+									- <a href="skype:${token}?chat">Skype</a>
+								</c:if>
+							</c:if>
+							<c:if test="${fn:length(tokens) > 2}">
+								<c:set var="token" value="${fn:trim(tokens[2])}" />
+								<c:if test="${not empty token}">
+									<%-- https://stackoverflow.com/a/8852679 --%>
+									- <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${token}" target="_blank">GMail</a>
+								</c:if>
+							</c:if>
+						</li>
+                    	</c:forTokens>
                 </ul>
             </div>
             
