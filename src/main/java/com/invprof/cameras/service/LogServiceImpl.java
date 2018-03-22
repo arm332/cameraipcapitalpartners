@@ -10,8 +10,8 @@ public class LogServiceImpl implements LogService {
 	private LogRepository repository = new LogRepositoryImpl();
 	
 	@Override
-	public List<Log> list() {
-		return repository.list();
+	public List<Log> list(Integer limit, Integer offset) {
+		return repository.list(limit, offset);
 	}
 
 	@Override

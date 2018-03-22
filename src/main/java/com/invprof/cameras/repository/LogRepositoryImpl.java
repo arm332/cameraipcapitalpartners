@@ -11,9 +11,10 @@ import com.invprof.cameras.model.Project;
 public class LogRepositoryImpl implements LogRepository {
 
 	@Override
-	public List<Log> list() {
+	public List<Log> list(Integer limit, Integer offset) {
 		Key<Project> parent = Key.create(Project.class, Constant.PROJECT_NAME);
-		return ObjectifyService.ofy().load().type(Log.class).ancestor(parent).order("-date").list();
+		return ObjectifyService.ofy().load().type(Log.class).ancestor(parent)
+				.order("-date").limit(limit).offset(offset).list();
 	}
 
 	@Override

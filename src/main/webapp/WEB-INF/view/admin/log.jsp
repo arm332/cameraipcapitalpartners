@@ -17,6 +17,12 @@
 	</div>
 	<!-- /.row -->
 
+	<p align="right">
+		<a href="/admin/log?pg=${prev}" class="btn btn-default">&lt;</a>
+		${page + 1}
+		<a href="/admin/log?pg=${next}" class="btn btn-default">&gt;</a>
+	</p>
+	
 	<table class="table table-hover table-striped">
 		<thead>
 			<tr>
@@ -48,9 +54,9 @@
 		</tbody>
 	</table>
 
-	<p>
+	<p align="right">
 		<!-- <a href="/admin/log?load" class="btn btn-primary">Novo</a> -->
-		<a href="/admin/log?download" class="btn btn-primary">Exportar</a>
+		<a href="/admin/log?download" class="btn btn-default">Exportar</a>
 	</p>
 </c:if>
 

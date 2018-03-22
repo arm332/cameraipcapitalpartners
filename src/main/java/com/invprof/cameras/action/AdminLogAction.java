@@ -17,6 +17,7 @@ import com.invprof.cameras.util.Util;
 
 public class AdminLogAction extends ActionAdapter {
 	private LogService service = new LogServiceImpl();
+	private final static Integer LIMIT = 25;
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -29,8 +30,15 @@ public class AdminLogAction extends ActionAdapter {
 
 	@Override
 	public String list(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		List<Log> list = service.list();
+		String aux = request.getParameter("pg");
+		Integer pg = Util.tryParseInt(aux);
+		if (pg == null || pg < 0) pg = 0;
+		Integer offset = pg * LIMIT; 
+		List<Log> list = service.list(LIMIT, offset);
 		request.setAttribute("list", list);
+		request.setAttribute("page", pg);
+		request.setAttribute("prev", pg - 1);
+		request.setAttribute("next", pg + 1);
 		return "/admin/log.jsp";
 	}
 
@@ -67,7 +75,7 @@ public class AdminLogAction extends ActionAdapter {
 	private String download(HttpServletRequest request, HttpServletResponse response) {
 		//String aux = request.getParameter("id");
 		//Long id = Util.tryParseLong(aux);
-		List<Log> list = service.list();
+		List<Log> list = service.list(0, 0);
 		String data = "";
 		
 		if (list != null) {
