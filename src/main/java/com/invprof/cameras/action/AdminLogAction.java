@@ -1,7 +1,10 @@
 package com.invprof.cameras.action;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +17,15 @@ import com.invprof.cameras.util.Util;
 
 public class AdminLogAction extends ActionAdapter {
 	private LogService service = new LogServiceImpl();
+	
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+		if (request.getParameter("download") != null) {
+			return download(request, response);
+		}
+		
+		return super.execute(request, response);
+	}
 
 	@Override
 	public String list(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -52,4 +64,49 @@ public class AdminLogAction extends ActionAdapter {
 		return "redirect:/admin/log";
 	}
 	
+	private String download(HttpServletRequest request, HttpServletResponse response) {
+		//String aux = request.getParameter("id");
+		//Long id = Util.tryParseLong(aux);
+		List<Log> list = service.list();
+		String data = "";
+		
+		if (list != null) {
+			StringBuilder sb = new StringBuilder();
+			
+			for(int i = 0; i < list.size() - 1 ; i++) {
+				Log log = list.get(i);
+				sb.append("\"");
+				sb.append(log.id.toString());
+				sb.append("\",\"");
+				sb.append(log.date.toString());
+				sb.append("\",\"");
+				sb.append(log.email.toString());
+				sb.append("\",\"");
+				sb.append(Objects.toString(log.notes, "").replaceAll("\"","\\\""));
+		        sb.append("\"\n");
+		    }
+			
+			data = sb.toString();
+		}
+		
+        response.setHeader("Content-disposition","attachment; filename=\"log.csv\"");
+		//response.setHeader("Content-Transfer-Encoding", "application/octet-stream");
+		response.setHeader("Content-Transfer-Encoding", "binary");
+		response.setContentType("application/octet-stream");
+		//response.setContentType("application/x-download");  
+		response.setContentLength((int) data.length());
+		//response.setContentLength(-1);
+        
+		try {
+			
+			OutputStream out = response.getOutputStream();
+			out.write(data.getBytes());
+			out.flush();
+			
+		} catch (IOException e) {
+			// TODO: handle exception
+		}
+
+		return null;
+	}
 }

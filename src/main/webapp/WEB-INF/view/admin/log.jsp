@@ -49,7 +49,8 @@
 	</table>
 
 	<p>
-		<a href="/admin/log?load" class="btn btn-primary">Novo</a>
+		<!-- <a href="/admin/log?load" class="btn btn-primary">Novo</a> -->
+		<a href="/admin/log?download" class="btn btn-primary">Exportar</a>
 	</p>
 </c:if>
 
