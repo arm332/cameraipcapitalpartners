@@ -34,7 +34,7 @@ public class AdminLogAction extends ActionAdapter {
 		String page = request.getParameter("page");
 		Integer p = Util.tryParseInt(page);
 		if (p == null || p < 0) p = 0;
-		System.out.println("p: " + p);
+		//System.out.println("p: " + p);
 		Integer limit = 20;
 		Integer offset = limit * p;
 		String order = "-date";
@@ -46,7 +46,7 @@ public class AdminLogAction extends ActionAdapter {
 		request.setAttribute("start", start);
 		request.setAttribute("end", end);
 		request.setAttribute("page", p);
-		request.setAttribute("prev", p - 1);
+		request.setAttribute("prev", (p > 0) ? p - 1 : 0);
 		request.setAttribute("next", p + 1);
 		return "/admin/log.jsp";
 	}

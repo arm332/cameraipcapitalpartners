@@ -18,14 +18,14 @@
 	<!-- /.row -->
 
 	<form class="form-inline pull-right" method="post" action="/admin/log">
-		<input class="form-control" type="text" name="start" value="${start}"/>
-		<input class="form-control" type="text" name="end" value="${end}"/>
+		<input class="form-control" type="text" name="start" value="${start}" placeholder="dd/mm/yyyy"/>
+		<input class="form-control" type="text" name="end" value="${end}" placeholder="dd/mm/yyyy"/>
 		<button type="submit" class="btn btn-primary">Buscar</button>
 		&nbsp;
 		<a href="/admin/log?download&start=${start}&end=${end}" class="btn btn-default">Exportar</a>
 		&nbsp;
 		<a href="/admin/log?page=${prev}&start=${start}&end=${end}" class="btn btn-default"><span class="glyphicon glyphicon-step-backward"></span></a>
-		${page}
+		${page + 1}
 		<a href="/admin/log?page=${next}&start=${start}&end=${end}" class="btn btn-default"><span class="glyphicon glyphicon-step-forward"></span></a>
 	</form>
 	
