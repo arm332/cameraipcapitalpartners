@@ -17,11 +17,17 @@
 	</div>
 	<!-- /.row -->
 
-	<p align="right">
-		<a href="/admin/log?pg=${prev}" class="btn btn-default">&lt;</a>
-		${page + 1}
-		<a href="/admin/log?pg=${next}" class="btn btn-default">&gt;</a>
-	</p>
+	<form class="form-inline pull-right" method="post" action="/admin/log">
+		<input class="form-control" type="text" name="start" value="${start}"/>
+		<input class="form-control" type="text" name="end" value="${end}"/>
+		<button type="submit" class="btn btn-primary">Buscar</button>
+		&nbsp;
+		<a href="/admin/log?download&start=${start}&end=${end}" class="btn btn-default">Exportar</a>
+		&nbsp;
+		<a href="/admin/log?page=${prev}&start=${start}&end=${end}" class="btn btn-default"><span class="glyphicon glyphicon-step-backward"></span></a>
+		${page}
+		<a href="/admin/log?page=${next}&start=${start}&end=${end}" class="btn btn-default"><span class="glyphicon glyphicon-step-forward"></span></a>
+	</form>
 	
 	<table class="table table-hover table-striped">
 		<thead>
@@ -54,10 +60,9 @@
 		</tbody>
 	</table>
 
-	<p align="right">
-		<!-- <a href="/admin/log?load" class="btn btn-primary">Novo</a> -->
-		<a href="/admin/log?download" class="btn btn-default">Exportar</a>
-	</p>
+	<!-- <p align="right">
+		<a href="/admin/log?load" class="btn btn-primary">Novo</a>
+	</p> -->
 </c:if>
 
 <c:if test="${item != null}">

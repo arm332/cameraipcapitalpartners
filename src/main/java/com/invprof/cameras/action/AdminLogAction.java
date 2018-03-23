@@ -17,7 +17,6 @@ import com.invprof.cameras.util.Util;
 
 public class AdminLogAction extends ActionAdapter {
 	private LogService service = new LogServiceImpl();
-	private final static Integer LIMIT = 25;
 	
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -30,15 +29,25 @@ public class AdminLogAction extends ActionAdapter {
 
 	@Override
 	public String list(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		String aux = request.getParameter("pg");
-		Integer pg = Util.tryParseInt(aux);
-		if (pg == null || pg < 0) pg = 0;
-		Integer offset = pg * LIMIT; 
-		List<Log> list = service.list(LIMIT, offset);
+		String start = request.getParameter("start");
+		String end = request.getParameter("end");
+		String page = request.getParameter("page");
+		Integer p = Util.tryParseInt(page);
+		if (p == null || p < 0) p = 0;
+		System.out.println("p: " + p);
+		Integer limit = 20;
+		Integer offset = limit * p;
+		String order = "-date";
+		
+		List<Log> list = service.list(Util.tryParseDate(start), 
+				Util.tryParseDate(end), limit, offset, order);
+		
 		request.setAttribute("list", list);
-		request.setAttribute("page", pg);
-		request.setAttribute("prev", pg - 1);
-		request.setAttribute("next", pg + 1);
+		request.setAttribute("start", start);
+		request.setAttribute("end", end);
+		request.setAttribute("page", p);
+		request.setAttribute("prev", p - 1);
+		request.setAttribute("next", p + 1);
 		return "/admin/log.jsp";
 	}
 
@@ -56,7 +65,7 @@ public class AdminLogAction extends ActionAdapter {
 		String aux = request.getParameter("id");
 		Long id = Util.tryParseLong(aux);
 		aux = request.getParameter("date");
-		Date date = Util.tryParseDate(aux);
+		Date date = Util.tryParseDateTime(aux);
 		String email = request.getParameter("email");
 		String notes = request.getParameter("notes");
 		Log item = new Log(id, date, email, notes);
@@ -73,9 +82,7 @@ public class AdminLogAction extends ActionAdapter {
 	}
 	
 	private String download(HttpServletRequest request, HttpServletResponse response) {
-		//String aux = request.getParameter("id");
-		//Long id = Util.tryParseLong(aux);
-		List<Log> list = service.list(0, 0);
+		List<Log> list = service.list(null, null, null, null, null);
 		String data = "";
 		
 		if (list != null) {

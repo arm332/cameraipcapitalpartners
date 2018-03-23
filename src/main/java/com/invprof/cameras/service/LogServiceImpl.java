@@ -1,5 +1,6 @@
 package com.invprof.cameras.service;
 
+import java.util.Date;
 import java.util.List;
 
 import com.invprof.cameras.model.Log;
@@ -10,8 +11,8 @@ public class LogServiceImpl implements LogService {
 	private LogRepository repository = new LogRepositoryImpl();
 	
 	@Override
-	public List<Log> list(Integer limit, Integer offset) {
-		return repository.list(limit, offset);
+	public List<Log> list(Date start, Date end, Integer limit, Integer offset, String order) {
+		return repository.list(start, end, limit, offset, order);
 	}
 
 	@Override

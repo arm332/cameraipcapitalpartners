@@ -2,13 +2,12 @@ package com.invprof.cameras.util;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
 
 public final class Util {
-	private static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	private static SimpleDateFormat dateTimeFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
 	private Util() {} // prevents instantiation
 
@@ -40,10 +39,14 @@ public final class Util {
     }
 
 	public static Integer tryParseInt(String s) {
+	    return tryParseInt(s, null);
+	}
+
+	public static Integer tryParseInt(String s, Integer i) {
 		try {
 		    return Integer.parseInt(s);
 		} catch (Exception e) {
-		    return null;
+		    return i;
 		}
 	}
 	
@@ -56,9 +59,13 @@ public final class Util {
 	}
 	
 	public static Date tryParseDate(String s) {
+		return tryParseDateTime(s + " 00:00:00");
+	}
+	
+	public static Date tryParseDateTime(String s) {
 		try {
-			return dateFormat.parse(s);
-		} catch (ParseException e) {
+			return dateTimeFormat.parse(s);
+		} catch (Exception e) {
 			return null;
 		}
 	}
