@@ -111,7 +111,7 @@ $(document).ready(function() {
     // Show camera tooltip
 
     $('.cam [data-toggle="popover"]').popover({
-        trigger: "focus",
+        trigger: "click",
         placement: "bottom",
         container: 'body',
         html: true,
