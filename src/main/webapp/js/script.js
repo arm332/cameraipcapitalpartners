@@ -218,9 +218,9 @@ $(document).ready(function() {
 	        	});
 	        	//$html += '<br/>' + new Date();
 	    		$('#viewers').html($html);
-	    		// Cameras has it's own refresh every 3 min
+	    		// Cameras has it's own refresh every 1 min
 	    		if ($path[1] != 'camera') {
-	    			setTimeout($viewers, 1000 * 60 * 3); // 3 min
+	    			setTimeout($viewers, 1000 * 60 * 1); // 1 min
 	    		}
 	    	})
 	    	.fail(function() {
@@ -230,7 +230,7 @@ $(document).ready(function() {
     
     // Avoid request when not logged in as we won't receive any data anyway
     
-    if ($path[1] != 'login' && $path[1] != 'logout') {
-        $viewers();    	
-    }
+    //if ($path[1] != 'login' && $path[1] != 'logout') {
+    //    $viewers();    	
+    //}
 });
