@@ -18,7 +18,7 @@ try {
     datastore.put(txn, project);
     Key projectKey = project.getKey();
     
-    final String[] profiles = {"camera@ip-cp.com"};
+    final String[] profiles = {"arm332@gmail.com"};
     
     for (int i = 0; i < profiles.length; i++) {
 	    Entity entity = new Entity("Profile", profiles[i], projectKey);
@@ -26,7 +26,7 @@ try {
 	    entity.setUnindexedProperty("status", 1);
 	    datastore.put(txn, entity);
     }
-    /*
+	/*    
     final int CAMERA_COUNT = 9;
     
     for (int i = 0; i < CAMERA_COUNT; i++) {
