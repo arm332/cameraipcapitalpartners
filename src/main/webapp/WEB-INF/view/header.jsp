@@ -11,7 +11,9 @@
 	<c:if test="${refresh}">
 		<meta http-equiv="refresh" content="60">
 	</c:if>
-	<title>Câmeras IP Capital Partners</title>
+	<title>Câmeras - IP Capital Partners</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
 	<link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
 	<link rel="stylesheet" href="/css/style.css" type="text/css" />
 	<script src="/js/jquery.min.js" type="text/javascript"></script>
@@ -36,40 +38,45 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav navbar-right">
-					<!-- <li><a href="/">Começo</a></li> --> <!-- class="active" -->
-					<li><a href="/camera">Câmeras</a></li>
-					<li><a href="/document">Documentos</a></li>
-					<!-- <li><a href="/viewers">Usuários Ativos</a></li> -->
-					<%--
-					<c:if test="${sessionScope.status == 1}">
+					<c:if test="${not empty sessionScope.status}">
+						<!-- <li><a href="/">Começo</a></li> --> <!-- class="active" -->
+						<li><a href="/camera">Câmeras</a></li>
+						<li><a href="/document">Documentos</a></li>
+						<!-- <li><a href="/viewers">Usuários Ativos</a></li> -->
+						<%--
+						<c:if test="${sessionScope.status == 1}">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="/admin/camera">Câmeras</a></li>
+									<li><a href="/admin/document">Documentos</a></li>
+									<!-- <li><a href="/admin/product">Produtos</a></li> -->
+									<li><a href="/admin/profile">Usuários</a></li>
+				                                </ul>
+							</li>
+						</c:if>
+						--%>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.email} <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="/admin/camera">Câmeras</a></li>
-								<li><a href="/admin/document">Documentos</a></li>
-								<!-- <li><a href="/admin/product">Produtos</a></li> -->
-								<li><a href="/admin/profile">Usuários</a></li>
-			                                </ul>
+								<c:if test="${sessionScope.status == 1}">
+									<!-- <li class="dropdown-header">ADMINISTRAÇÃO</li> -->
+									<li><a href="/admin/camera">Câmeras</a></li>
+									<li><a href="/admin/document">Documentos</a></li>
+									<!-- <li><a href="/admin/product">Produtos</a></li> -->
+									<li><a href="/admin/profile">Usuários</a></li>
+									<li><a href="/admin/log">Log</a></li>
+									<li role="separator" class="divider"></li>
+								</c:if>
+								<li><a href="#" data-href="/logout"
+									data-message="Sair da Conta do Google?"
+									data-toggle="modal" data-target="#confirm-dialog">Sair</a></li>
+							</ul>
 						</li>
 					</c:if>
-					--%>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.email} <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<c:if test="${sessionScope.status == 1}">
-								<li class="dropdown-header">ADMINISTRAÇÃO</li>
-								<li><a href="/admin/camera">Câmeras</a></li>
-								<li><a href="/admin/document">Documentos</a></li>
-								<!-- <li><a href="/admin/product">Produtos</a></li> -->
-								<li><a href="/admin/profile">Usuários</a></li>
-								<li><a href="/admin/log">Log</a></li>
-								<li role="separator" class="divider"></li>
-							</c:if>
-							<li><a href="#" data-href="/logout"
-								data-message="Sair da Conta do Google?"
-								data-toggle="modal" data-target="#confirm-dialog">Sair</a></li>
-						</ul>
-					</li>
+					<c:if test="${empty sessionScope.status}">
+						<li><a href="/login">Entrar</a></li>
+					</c:if>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

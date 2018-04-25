@@ -1,22 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="java.util.Calendar"%>
 
-		<!-- Footer -->
+	<!-- Footer -->
     <footer>
+		<c:if test="${not empty sessionScope.status}">
 		<div class="container">
 	        <div class="row">
-            	<hr />
-                <div class="col-md-6">
-                    <p>Copyright &copy; <%= Calendar.getInstance().get(Calendar.YEAR) %>, IP Capital Partners. Todos os direitos reservados.</p>
-                </div>
-                <div class="col-md-6">
-                	<p class="text-right" id="viewers"></p>
-                </div>
+	            	<hr />
+	                <div class="col-md-6">
+	                    <p>Copyright &copy; <%= Calendar.getInstance().get(Calendar.YEAR) %>, IP Capital Partners. Todos os direitos reservados.</p>
+	                </div>
+	                <div class="col-md-6">
+	                	<p class="text-right" id="viewers"></p>
+	                </div>
             </div>
             <!-- /.row -->
 		</div> 
 		<!-- /.container -->	
+        </c:if>
     </footer>
 	
 	<!-- Generic confirmation dialog -->
