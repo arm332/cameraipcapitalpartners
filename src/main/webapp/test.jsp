@@ -19,6 +19,7 @@
 //TODO: catch exceptions
 
 String idToken = (request.getParameter("id_token") != null) ? request.getParameter("id_token") : "null";
+String oper = (request.getParameter("oper") != null) ? request.getParameter("oper") : "null";
 
 if (!"debug".equals(idToken)) {
 	URL url = new URL("https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" + idToken);
@@ -57,17 +58,19 @@ if (!"debug".equals(idToken)) {
 		return;
 	}
 
-	String domain = email.substring(email.indexOf('@'));
 	Key<Project> parent = Key.create(Project.class, Constant.PROJECT_NAME);
-	Profile profile = ObjectifyService.ofy().load().type(Profile.class).parent(parent).id(domain).now();
-
+	Profile profile = ObjectifyService.ofy().load().type(Profile.class).parent(parent).id(email).now();
+	
 	if (profile == null) {
-		out.print("[{\"error\":\"Profile not found\"}]");
-		return;
-	}	
-}
+		String domain = email.substring(email.indexOf('@'));
+		profile = ObjectifyService.ofy().load().type(Profile.class).parent(parent).id(domain).now();
 
-String oper = (request.getParameter("oper") != null) ? request.getParameter("oper") : "null";
+		if (profile == null) {
+			out.print("[{\"error\":\"Profile not found\"}]");
+			return;
+		}	
+	}
+}
 
 if ("cameras".equals(oper)) {
 	Key<Project> parent = Key.create(Project.class, Constant.PROJECT_NAME);
