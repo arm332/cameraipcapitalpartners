@@ -49,12 +49,12 @@ if (!"debug".equals(idToken)) {
 	// TODO: check sub = user's unique Google ID
 	
 	if (error != null) {
-		out.print("[{\"error\":\"" + error + "\"}]");
+		out.print("{\"error\":\"" + error + "\"}");
 		return;
 	}
 	
 	if (email == null) {
-		out.print("[{\"error\":\"E-Mail not found\"}]");
+		out.print("{\"error\":\"E-Mail not found\"}");
 		return;
 	}
 
@@ -66,7 +66,7 @@ if (!"debug".equals(idToken)) {
 		profile = ObjectifyService.ofy().load().type(Profile.class).parent(parent).id(domain).now();
 
 		if (profile == null) {
-			out.print("[{\"error\":\"Profile not found\"}]");
+			out.print("{\"error\":\"Profile not found\"}");
 			return;
 		}	
 	}
@@ -77,9 +77,9 @@ if ("cameras".equals(oper)) {
 	List<Camera> list = ObjectifyService.ofy().load().type(Camera.class).ancestor(parent).order("position").list();
 	Gson gson = new Gson();
 	String json = gson.toJson(list);
-	out.print(json);
+	out.print("{\"cameras\":" + json + "}");
 	return;
 }
 
-out.print("[{\"error\":\"Operation not found\"}]");
+out.print("{\"error\":\"Operation not found\"}");
 %>
