@@ -36,12 +36,12 @@ if (!"debug".equals(idToken)) {
 	JsonElement element = parser.parse(buffer);
 	JsonObject tokenInfo = element.getAsJsonObject();
 
-	String aud = tokenInfo.has("aud") ? tokenInfo.get("aud").toString() : null;
-	String iss = tokenInfo.has("iss") ? tokenInfo.get("iss").toString() : null;
-	String exp = tokenInfo.has("exp") ? tokenInfo.get("exp").toString() : null;
-	String sub = tokenInfo.has("sub") ? tokenInfo.get("sub").toString() : null;
-	String email = tokenInfo.has("email") ? tokenInfo.get("email").toString() : null;
-	String error = tokenInfo.has("error_description") ? tokenInfo.get("error_description").toString() : null;
+	String aud = tokenInfo.has("aud") ? tokenInfo.get("aud").getAsString() : null;
+	String iss = tokenInfo.has("iss") ? tokenInfo.get("iss").getAsString() : null;
+	String exp = tokenInfo.has("exp") ? tokenInfo.get("exp").getAsString() : null;
+	String sub = tokenInfo.has("sub") ? tokenInfo.get("sub").getAsString() : null;
+	String email = tokenInfo.has("email") ? tokenInfo.get("email").getAsString() : null;
+	String error = tokenInfo.has("error_description") ? tokenInfo.get("error_description").getAsString() : null;
 
 	// TODO: check aud == CLIENT_ID
 	// TODO: check iss == "https://accounts.google.com"
@@ -51,7 +51,7 @@ if (!"debug".equals(idToken)) {
 	if (error != null) {
 		out.print("[{\"error\":\"" + error + "\"}]");
 		return;
-	}	
+	}
 	
 	if (email == null) {
 		out.print("[{\"error\":\"E-Mail not found\"}]");
